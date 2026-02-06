@@ -14,7 +14,8 @@
 - **Git Ignore Policy:** By adding `atlas.md` to `.gitignore`, local index updates are prevented from being pushed to the cloud, maintaining repository cleanliness.
 
 ## Architectural Shifts
-- **Simplified Setup:** Removed complex Git commands from the Manifesto to lower the barrier for entry while maintaining system integrity.
+- **Index-Based Retrieval**: Shifted from manual distillation to automated indexing of execution history.
+- **Rule Simplification**: Removed redundant Atlas integrity rules from the Manifesto as the `.gitignore` policy now enforces cleanliness by default.
 
 ## Resources
 
