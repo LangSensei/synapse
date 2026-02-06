@@ -1,10 +1,14 @@
 # Synapse System - Version Control Policy
 
-# Ignore system-specific or temp files if needed
+# System/Temp Files
 .gemini/tmp/
 
-# Ensure the cortex, gateway, and neurons are tracked
+# Core Gateway
 !GEMINI.md
+
+# Cortex (Global Wisdom)
 !.gemini/cortex/
 .gemini/cortex/atlas.md
+
+# Neurons (Execution History)
 !.gemini/neurons/
