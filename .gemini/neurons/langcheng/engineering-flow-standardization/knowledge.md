@@ -17,4 +17,5 @@
 - **Simplified Setup:** Removed complex Git commands from the Manifesto to lower the barrier for entry while maintaining system integrity.
 
 ## Resources
-- [.gemini/scripts/sync-atlas.py](../../../.gemini/scripts/sync-atlas.py)
+
+- [.gemini/scripts/sync-atlas.py](../../../scripts/sync-atlas.py)

@@ -17,4 +17,4 @@
 - **Protocol Version 1.1**: Introduced "Auditability" and "Skill Portability" as core standards.
 
 ## Resources
-- [Manifesto](../../../.gemini/cortex/manifesto.md)
+- [Manifesto](../../../cortex/manifesto.md)

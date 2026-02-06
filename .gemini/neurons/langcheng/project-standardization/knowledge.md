@@ -17,4 +17,4 @@
 - **Protocol Establishment**: Defined the dual-layered cognitive architecture for AI-native engineering.
 
 ## Resources
-- [Manifesto](.gemini/cortex/manifesto.md)
+- [Manifesto](../../../cortex/manifesto.md)

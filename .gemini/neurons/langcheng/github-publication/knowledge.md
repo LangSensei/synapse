@@ -17,4 +17,5 @@
 - **Public Visibility**: Moving from a local-only setup to a GitHub-ready structure requires clear instructions on how to replicate the agent environment.
 
 ## Resources
-- [README.md](../../../README.md)
+
+- [README.md](../../../../README.md)
