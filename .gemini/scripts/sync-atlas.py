@@ -48,8 +48,6 @@ def sync_atlas():
             user = parts[2]
             
             metadata = parse_knowledge_file(path)
-            
-            # Simple relative path for GitHub linking
             rel_path = path.as_posix()
             
             entries.append(
@@ -63,7 +61,7 @@ def sync_atlas():
 
 ## The Knowledge Map
 A dynamically generated index of all verified technical findings across the Synapse ecosystem. 
-*Note: This file is cleared before push to production; run `.gemini/scripts/sync-atlas.py` locally to populate.*
+*Note: This file is ignored by Git; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
 ## Index Map
 | Date | Task ID | User | Summary | Tags | Knowledge Link |
