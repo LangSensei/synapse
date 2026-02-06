@@ -12,6 +12,11 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 ## Initialization Sequence
 1. **User Auth:** Prompt for alias (lowercase, alphanumeric).
 2. **Context Setup:** Initialize or resume neuron at `.gemini/neurons/${alias}/${task_id}/`.
-3. **Cortex Sync:** Read `GEMINI.md` and `atlas.md` to align with the current project state.
+3. **Cortex Sync:** 
+    - Read `GEMINI.md` and `manifesto.md`.
+    - Run `python .gemini/scripts/sync-atlas.py` to generate the local index of `atlas.md`.
+    - Search `atlas.md` for related historical knowledge.
 4. **Structured Planning:** Invoke `planning-with-files` skill within the task directory.
-5. **The Synapse Mandate:** Distill "Verified Truths" into `knowledge.md` throughout the task for Cortex promotion.
+5. **The Synapse Mandate:** 
+    - Use `knowledge-with-files` to distill findings.
+    - **Atlas Integrity:** `atlas.md` MUST contain 0 entries when committed to the repository. It is a local-only index generated from neuron history.

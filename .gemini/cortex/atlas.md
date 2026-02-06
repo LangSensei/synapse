@@ -1,11 +1,10 @@
 # Synapse Atlas
 
 ## The Knowledge Map
-A curated encyclopedia of all verified technical findings, "gotchas," and historical decision records.
+A dynamically generated index of all verified technical findings across the Synapse ecosystem. 
+*Note: This file is cleared before push to production; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
-## Entries
-
-### [2026-02-06] Synapse System Initialization
-- **Core Architecture:** Decentralized knowledge model with Cortex (Global) and Neuron (Private) layers.
-- **Protocol:** Defined in `manifesto.md` and distilled in the initial `knowledge.md`.
-- **VC Policy:** Neurons are local-only; Cortex is shared.
+## Index Map
+| Date | Task ID | User | Summary | Tags | Knowledge Link |
+|------|---------|------|---------|------|----------------|
+| - | - | - | No local knowledge found. Run sync to populate. | - | - |
