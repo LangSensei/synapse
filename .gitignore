@@ -6,5 +6,4 @@
 # Ensure the cortex, gateway, and neurons are tracked
 !GEMINI.md
 !.gemini/cortex/
-.gemini/cortex/atlas.md
 !.gemini/neurons/
