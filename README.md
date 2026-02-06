@@ -36,7 +36,7 @@ Synapse relies on specialized agent skills for structured execution.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/synapse.git
+   git clone https://github.com/LangSensei/synapse.git
    cd synapse
    ```
 
