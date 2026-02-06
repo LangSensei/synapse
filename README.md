@@ -14,10 +14,10 @@ Located in `.gemini/cortex/`.
 - **Permanent Wisdom**: Stores engineering standards, technical findings, and architectural decisions.
 - **Shared Memory**: Versioned with the repository to ensure all contributors (human and AI) align with the project's "Source of Truth."
 
-### 2. Neuron (Working Memory)
+### 2. Neuron (Execution History)
 Located in `.gemini/neurons/{user}/{task_id}/`.
-- **Private Execution**: Local, task-specific workspaces for active development.
-- **Ephemeral State**: Isolated to prevent cross-task pollution and protect user privacy.
+- **Task Workspace**: Task-specific workspaces for active development.
+- **Learning History**: These directories are committed to the repository to provide a transparent log of how decisions were made and tasks executed.
 - **Distillation**: Task-specific insights are refined in `knowledge.md` before being promoted to the Cortex.
 
 ## 🛠 Required Skills

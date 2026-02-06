@@ -4,13 +4,14 @@
 This project follows the Synapse System Protocol for elite AI software engineering.
 
 ## Engineering Standards
-- **Decentralized Knowledge:** All verified findings must be distilled into the Cortex.
-- **Cognitive Layering:** Distinction between Global Intelligence (Cortex) and Working Memory (Neuron).
-- **Project Skills:** The project maintains its own specialized agent skills in `.gemini/skills/` to ensure consistent execution across different environments.
+- **Global Wisdom (Cortex):** All verified findings and architectural shifts MUST be distilled into the Cortex (`.gemini/cortex/`).
+- **Execution History (Neuron):** Every task must have a unique neuron (`.gemini/neurons/{user}/{task_id}/`) to maintain state and history.
+- **Auditability:** Commit all neuron files to GitHub to enable meta-learning and performance optimization.
+- **Skill Portability:** Project-level skills in `.gemini/skills/` are the authoritative sources for operational procedures.
 
 ## Initialization Sequence
-1. **Identify User:** Ask for the user's preferred name (alias). It must be lowercase without special characters.
-2. **Locate Neuron:** Locate or create the assigned directory: `.gemini/neurons/${alias}/${task_id}/`.
-3. **Load Cortex:** Read the root `GEMINI.md` to load the current Cortex state.
-4. **Plan Task:** Delegate to the `planning-with-files` skill. Ensure `task_plan.md`, `findings.md`, and `progress.md` are initialized within the specific `${task_id}` folder.
-5. **Execute:** Follow the skill's workflow, while also maintaining the Synapse Mandate: distilling "how" into `knowledge.md` for later promotion to the Cortex.
+1. **User Auth:** Prompt for alias (lowercase, alphanumeric).
+2. **Context Setup:** Initialize or resume neuron at `.gemini/neurons/${alias}/${task_id}/`.
+3. **Cortex Sync:** Read `GEMINI.md` and `atlas.md` to align with the current project state.
+4. **Structured Planning:** Invoke `planning-with-files` skill within the task directory.
+5. **The Synapse Mandate:** Distill "Verified Truths" into `knowledge.md` throughout the task for Cortex promotion.

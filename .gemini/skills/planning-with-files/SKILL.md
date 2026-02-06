@@ -10,12 +10,12 @@ Work like Manus: Use persistent markdown files as your "working memory on disk."
 ## Important: Where Files Go
 
 - **Templates** are in this skill's `templates/` folder
-- **Your planning files** go in **your project directory**
+- **Planning files** MUST go in the **task-specific neuron directory**: `.gemini/neurons/{user}/{task_id}/`
 
 | Location | What Goes There |
 |----------|-----------------|
 | Skill directory | Templates, scripts, reference docs |
-| Your project directory | `task_plan.md`, `findings.md`, `progress.md` |
+| Task Neuron directory | `task_plan.md`, `findings.md`, `progress.md` |
 
 ## Quick Start
 

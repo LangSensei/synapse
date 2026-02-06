@@ -1,8 +1,9 @@
 # Synapse System - Version Control Policy
 
-# Ignore all user-specific neurons
-.gemini/neurons/**/*
+# Ignore system-specific or temp files if needed
+.gemini/tmp/
 
-# Ensure the cortex and gateway are tracked
-!.gemini/cortex/
+# Ensure the cortex, gateway, and neurons are tracked
 !GEMINI.md
+!.gemini/cortex/
+!.gemini/neurons/
