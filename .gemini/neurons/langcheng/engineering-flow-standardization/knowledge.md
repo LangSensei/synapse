@@ -3,18 +3,18 @@
 ## Metadata
 - **Date:** 2026-02-06
 - **Task ID:** engineering-flow-standardization
-- **Tags:** atlas, indexing, synchronization, knowledge-management
-- **Summary:** Implemented dynamic Atlas indexing using the `knowledge-with-files` skill and a Python sync script.
+- **Tags:** atlas, indexing, synchronization, git-policy
+- **Summary:** Implemented dynamic Atlas indexing with a tracked clean template in the cloud and local-only updates via .gitignore.
 
 ## Verified Patterns
-- **Dynamic Indexing**: Atlas acts as a local index of all neuron history rather than a manual storage file.
-- **Knowledge Templating**: Standardized `knowledge.md` metadata enables reliable automated parsing.
+- **Tracked Template:** Keeping a clean `atlas.md` in the repository ensures the file structure is ready for new users without manual creation.
+- **Dynamic Indexing**: The `sync-atlas.py` script reliably builds the local knowledge map from neuron history.
 
 ## System Constraints
-- **Atlas Cleanliness**: `atlas.md` must be cleared before repository commits to maintain production state.
+- **Git Ignore Policy:** By adding `atlas.md` to `.gitignore`, local index updates are prevented from being pushed to the cloud, maintaining repository cleanliness.
 
 ## Architectural Shifts
-- **Index-Based Retrieval**: Shifted from manual distillation to automated indexing of execution history.
+- **Simplified Setup:** Removed complex Git commands from the Manifesto to lower the barrier for entry while maintaining system integrity.
 
 ## Resources
 - [.gemini/scripts/sync-atlas.py](../../../.gemini/scripts/sync-atlas.py)

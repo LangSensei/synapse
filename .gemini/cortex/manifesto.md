@@ -14,7 +14,6 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 2. **Context Setup:** Initialize or resume neuron at `.gemini/neurons/${alias}/${task_id}/`.
 3. **Cortex Sync:** 
     - Read `GEMINI.md` and `manifesto.md`.
-    - Run `git update-index --assume-unchanged .gemini/cortex/atlas.md` (Prevents local index from syncing to cloud).
     - Run `python .gemini/scripts/sync-atlas.py` to generate the local index.
     - Search `atlas.md` for related historical knowledge.
 4. **Structured Planning:** Invoke `planning-with-files` skill within the task directory.
