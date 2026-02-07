@@ -11,6 +11,7 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 - **Execution History (Neuron):** Every spike must have a unique neuron (`.gemini/neurons/{neuron_id}/spikes/{spike_id}/`) to maintain state and history.
 - **Auditability:** Commit all neuron files to GitHub to enable meta-learning and performance optimization.
 - **Skill Portability:** Project-level skills in `.gemini/skills/` are the authoritative sources for operational procedures.
+- **Template Integrity:** Agents MUST strictly adhere to the established layout and structure defined in `.gemini/skills/*/templates/`. Modifying standard headers, phase structures, or metadata fields is prohibited to ensure cross-neuron compatibility and automated auditability.
 - **Workspace Containment:** All temporary scripts, test data, and generated artifacts MUST be created within the active spike directory (`.gemini/neurons/{neuron_id}/spikes/{spike_id}/`), NOT the project root.
 - **Neuron Memory:** Neuron-specific facts, preferences, and long-term context MUST be stored in `.gemini/neurons/{neuron_id}/MEMORY.md`. This file serves as the persistent memory for the neuron across all spikes.
 - **Error Handling:** 
@@ -39,7 +40,7 @@ Executed whenever creating a new spike or switching between existing ones.
     - **Location Verification:** **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their existence within the specific spike directory immediately after initialization.
 3. **Execution Protocol:**
     - **Iterative Approach:** The agent leverages the `planning-with-files` skill to Plan, Execute, and Verify in a continuous loop. **Persistence Mandate:** Agents MUST update planning files (`spike_plan.md`, `findings.md`, `progress.md`) for each phase and immediately after EACH tool call. **Accumulation:** NEVER overwrite history. Always append new data to preserve the full chronological context. Note that these files are NOT updated automatically by scripts.
-        - **Plan:** Populate/Update `spike_plan.md` before taking action.
+        - **Plan:** Perform knowledge discovery by reviewing `.gemini/cortex/atlas.md` for related technical findings, then populate/update `spike_plan.md` before taking action.
         - **Execute:** Perform implementation steps while fully leveraging the `planning-with-files` skill (e.g., maintaining `findings.md` via the 2-Action Rule and updating `progress.md`) to ensure continuous state persistence on disk.
         - **Verify:** Audit progress using verification scripts:
             - Windows: `powershell.exe -File .gemini/skills/planning-with-files/scripts/check-complete.ps1 -neuronId {neuron_id} -spikeId {spike_id}`
