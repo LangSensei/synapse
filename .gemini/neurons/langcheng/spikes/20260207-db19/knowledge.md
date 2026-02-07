@@ -3,7 +3,7 @@
 ## Metadata
 - **Date:** 2026-02-07
 - **Spike ID:** 20260207-db19
-- **Status:** Active
+- **Status:** Completed
 - **Authors:** langcheng
 - **Tags:** sync-atlas, filtering, protocol
 - **Summary:** Updated the `sync-atlas.py` script to parse the `Status` field from knowledge artifacts and only include entries with the status "Completed" in the generated `atlas.md`. Additionally refined the `manifesto.md` to ensure zero persistence lag in planning files.
