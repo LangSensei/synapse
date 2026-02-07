@@ -27,25 +27,28 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 Executed whenever creating a new spike or switching between existing ones.
 
 1. **Context Discovery:** List existing spikes using `python .gemini/scripts/spike_manager.py --list {neuron_id}`.
-    - **Resume:** Provide numbered options for existing spikes. The list should display the human-readable name extracted from `spike_plan.md` alongside the directory ID.
-    - **Create:** If starting a new objective, guide the user to describe it and define a concise spike_id (e.g., `fix-auth-bug`).
-2. **Initialization:** Initialize the workspace using `python .gemini/scripts/spike_manager.py --init {neuron_id} {spike_id}`.
-    - **Capture ID:** Record the unique `spike_id` (e.g., `20260207-a9b1`) returned by the script. This ID is required for all subsequent planning and verification steps.
-3. **Structured Planning:**
+    - **Resume:** Provide numbered options for existing spikes.
+    - **Create:** If starting a new objective, guide the user to describe it and define a concise spike_id.
+2. **Initialization:** 
+    - **Global Synchronization:** Read `GEMINI.md` and `manifesto.md` to ensure protocol alignment, and run `python .gemini/scripts/sync-atlas.py` to regenerate the local index.
+    - **Create Directory:** Run `python .gemini/scripts/spike_manager.py --init {neuron_id} {spike_id}`. Capture the returned `spike_id`.
     - **Activate Skill:** Explicitly call `activate_skill(name="planning-with-files")`.
-    - **Init Workspace:** Initialize the planning files using the provided helper scripts:
+    - **Init Workspace:** Initialize planning files using:
         - Windows: `powershell.exe -File .gemini/skills/planning-with-files/scripts/init-session.ps1 -neuronId {neuron_id} -spikeId {spike_id}`
         - Unix: `bash .gemini/skills/planning-with-files/scripts/init-session.sh -neuronId {neuron_id} -spikeId {spike_id}`
     - **Location Verification:** **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their existence within the specific spike directory immediately after initialization.
-4. **Execution Protocol:**
-    - **Skill Adherence:** Agents MUST strictly adhere to the `planning-with-files` skill instructions and workflows throughout the execution phase.
-    - **Plan First:** Populate `spike_plan.md` with a structured roadmap before performing any implementation steps.
-    - **State Maintenance:** Agents are responsible for manually updating `spike_plan.md` (e.g., changing status to `complete`) after each phase, as mandated by the `planning-with-files` protocol.
-    - **Verification:** Use the provided verification scripts (e.g., `powershell.exe -File .gemini/skills/planning-with-files/scripts/check-complete.ps1 -neuronId {neuron_id} -spikeId {spike_id}`) to audit progress. **Mandatory Checkpoint:** Agents MUST explicitly ask the neuron for final confirmation before completing the spike. This ensures the neuron has the opportunity to append related tasks or provide final feedback before the session concludes.
-5. **The Synapse Mandate:** Upon completion, invoke `knowledge-with-files` to distill findings into `knowledge.md` within the spike directory. Follow the Global Synchronization protocol to update the Atlas.
-
-### III. Global Synchronization (Continuous)
-Executed whenever knowledge is distilled or system documents change.
-1. **Cortex Sync:** 
-    - Read `GEMINI.md` and `manifesto.md` to ensure protocol alignment.
-    - Run `python .gemini/scripts/sync-atlas.py` to regenerate the local index whenever a `knowledge.md` file is created or modified in any spike.
+3. **Execution Protocol:**
+    - **Iterative Approach:** The agent leverages the `planning-with-files` skill to Plan, Execute, and Verify in a continuous loop. **Note:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) are NOT updated automatically by scripts; the agent is responsible for manually updating them after each phase or action.
+        - **Plan:** Populate/Update `spike_plan.md` before taking action.
+        - **Execute:** Perform implementation steps while fully leveraging the `planning-with-files` skill (e.g., maintaining `findings.md` via the 2-Action Rule and updating `progress.md`) to ensure continuous state persistence on disk.
+        - **Verify:** Audit progress using verification scripts:
+            - Windows: `powershell.exe -File .gemini/skills/planning-with-files/scripts/check-complete.ps1 -neuronId {neuron_id} -spikeId {spike_id}`
+            - Unix: `bash .gemini/skills/planning-with-files/scripts/check-complete.sh -neuronId {neuron_id} -spikeId {spike_id}`
+        - **Distill:** Invoke the `knowledge-with-files` skill to update `knowledge.md` with current findings (Status: Active).
+    - **Interaction:** The agent MUST explicitly provide status updates and summaries after key phases and **ask the {neuron_id} for feedback**. To maintain professional courtesy and personalization, agents SHOULD address the user by their `{neuron_id}` during interactions.
+    - **Completion Gate:**
+        - The spike can ONLY be completed if the {neuron_id} confirms it.
+        - **Upon Confirmation:**
+            1. Perform a final verification using the `check-complete` script.
+            2. Invoke `knowledge-with-files` to seal the `knowledge.md` (set **Status:** Completed).
+            3. **Context Loop:** Share a final status update and summary of the completed spike, then return to **II.1 Context Discovery** to prepare for the next objective.
