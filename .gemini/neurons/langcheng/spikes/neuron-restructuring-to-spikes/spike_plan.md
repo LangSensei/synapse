@@ -25,6 +25,7 @@ Phase 4: Verification & Finalization
 - [x] Update `.gemini/cortex/manifesto.md` and other protocol files.
 - [x] Update any skill templates if necessary.
 - [x] Update scripts (`sync-atlas.py`, `planning-with-files` scripts).
+- [x] Correct skill management attribution for `knowledge.md` in `README.md` and `GEMINI.md`.
 - **Status:** complete
 
 ### Phase 4: Verification & Finalization

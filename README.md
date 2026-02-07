@@ -50,8 +50,8 @@ Synapse relies on specialized agent skills for structured execution.
 
 ## 📜 The Synapse Protocol
 
-The project is governed by the [Synapse Manifesto](.gemini/cortex/manifesto.md). Every spike follows a structured 4-file pattern managed by the `planning-with-files` skill:
-- `task_plan.md`: Strategy & Roadmap
+The project is governed by the [Synapse Manifesto](.gemini/cortex/manifesto.md). Every spike follows a structured 4-file pattern managed by the `planning-with-files` and `knowledge-with-files` skills:
+- `spike_plan.md`: Strategy & Roadmap
 - `progress.md`: Execution Log
 - `findings.md`: Research & Insights
 - `knowledge.md`: Distilled Manual (Synapse Mandate)

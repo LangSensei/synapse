@@ -21,6 +21,7 @@
 | Move tasks to `spikes/` | Organize neuronal activities under a specific category. |
 | Rename `task_plan.md` to `spike_plan.md` | Full commitment to the "spike" terminology. |
 | Update scripts and templates | Ensure tools work with the new naming convention. |
+| Attribute `knowledge.md` to `knowledge-with-files` | Correct documentation to accurately reflect skill responsibilities. |
 
 ## Issues Encountered
 | Issue | Resolution |
