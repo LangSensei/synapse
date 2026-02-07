@@ -7,4 +7,4 @@ A dynamically generated index of all verified technical findings across the Syna
 ## Index Map
 | Date | Spike ID | Neuron ID | Summary | Tags | Knowledge Link |
 |------|----------|-----------|---------|------|----------------|
-| 2026-02-07 | random-task | langcheng | Refactored planning scripts to enforce neuron-scoped workspaces and added privileged access verification to the standard spike workflow. | `protocol, automation, security` | [Link](../../.gemini/neurons/langcheng/spikes/random-task/knowledge.md) |
+| - | - | - | No local knowledge found. Run sync to populate. | - | - |
