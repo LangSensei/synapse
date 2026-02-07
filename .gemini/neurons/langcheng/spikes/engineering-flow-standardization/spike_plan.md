@@ -1,4 +1,4 @@
-# Task Plan: Engineering Flow Standardization
+# Spike Plan: Engineering Flow Standardization
 
 ## Goal
 Standardize the Cortex indexing process by transforming `atlas.md` into a dynamically generated local index of all neuron knowledge.

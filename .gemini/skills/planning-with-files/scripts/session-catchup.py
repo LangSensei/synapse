@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import List, Dict, Optional, Tuple
 from datetime import datetime
 
-PLANNING_FILES = ['task_plan.md', 'progress.md', 'findings.md']
+PLANNING_FILES = ['spike_plan.md', 'progress.md', 'findings.md']
 
 
 def get_project_dir(project_path: str) -> Path:
@@ -199,9 +199,9 @@ def main():
 
     print("\n--- RECOMMENDED ---")
     print("1. Run: git diff --stat")
-    print("2. Read: task_plan.md, progress.md, findings.md")
+    print("2. Read: spike_plan.md, progress.md, findings.md")
     print("3. Update planning files based on above context")
-    print("4. Continue with task")
+    print("4. Continue with spike")
 
 
 if __name__ == '__main__':

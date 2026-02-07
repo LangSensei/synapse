@@ -1,4 +1,4 @@
-# Task Plan: Project Standardization
+# Spike Plan: Project Standardization
 
 ## Goal
 Establish the Synapse System Protocol structure, documentation, and project-level skills for elite AI software engineering.

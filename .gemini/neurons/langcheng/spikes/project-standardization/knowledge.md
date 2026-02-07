@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Date:** 2026-02-06
-- **Task ID:** project-standardization
+- **Spike ID:** project-standardization
 - **Tags:** initialization, synapse-protocol, project-structure
 - **Summary:** Established the core Synapse System structure, including Cortex and Neuron layers.
 

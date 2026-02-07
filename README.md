@@ -15,16 +15,16 @@ Located in `.gemini/cortex/`.
 - **Shared Memory**: Versioned with the repository to ensure all contributors (human and AI) align with the project's "Source of Truth."
 
 ### 2. Neuron (Execution History)
-Located in `.gemini/neurons/{user}/{task_id}/`.
-- **Task Workspace**: Task-specific workspaces for active development.
-- **Learning History**: These directories are committed to the repository to provide a transparent log of how decisions were made and tasks executed.
-- **Distillation**: Task-specific insights are refined in `knowledge.md` before being promoted to the Cortex.
+Located in `.gemini/neurons/{user}/spikes/{spike_id}/`.
+- **Spike Workspace**: Spike-specific workspaces for active development.
+- **Learning History**: These directories are committed to the repository to provide a transparent log of how decisions were made and spikes executed.
+- **Distillation**: Spike-specific insights are refined in `knowledge.md` before being promoted to the Cortex.
 
 ## 🛠 Required Skills
 
 Synapse relies on specialized agent skills for structured execution.
 
-- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)**: Implements "Manus-style" file-based planning. This is a **core dependency** for maintaining state across complex multi-step tasks.
+- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)**: Implements "Manus-style" file-based planning. This is a **core dependency** for maintaining state across complex multi-step spikes.
 
 ## 🚀 Getting Started
 
@@ -50,7 +50,7 @@ Synapse relies on specialized agent skills for structured execution.
 
 ## 📜 The Synapse Protocol
 
-The project is governed by the [Synapse Manifesto](.gemini/cortex/manifesto.md). Every task follows a structured 4-file pattern managed by the `planning-with-files` skill:
+The project is governed by the [Synapse Manifesto](.gemini/cortex/manifesto.md). Every spike follows a structured 4-file pattern managed by the `planning-with-files` skill:
 - `task_plan.md`: Strategy & Roadmap
 - `progress.md`: Execution Log
 - `findings.md`: Research & Insights

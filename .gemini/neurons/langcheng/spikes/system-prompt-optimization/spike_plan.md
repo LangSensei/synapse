@@ -1,4 +1,4 @@
-# Task Plan: System Prompt Optimization
+# Spike Plan: System Prompt Optimization
 
 ## Goal
 Optimize the Synapse System's core instructions, protocols, and templates (`.md` files) to enhance agent performance and ensure high-quality execution.

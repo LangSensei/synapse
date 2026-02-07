@@ -1,4 +1,4 @@
-# Task Plan: GitHub Publication
+# Spike Plan: GitHub Publication
 
 ## Goal
 Prepare the Synapse repository for public use on GitHub with a professional README and clear dependency management.

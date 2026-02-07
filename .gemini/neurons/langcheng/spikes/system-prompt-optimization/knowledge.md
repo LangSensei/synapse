@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Date:** 2026-02-06
-- **Task ID:** system-prompt-optimization
+- **Spike ID:** system-prompt-optimization
 - **Tags:** optimization, prompts, manifesto, templates
 - **Summary:** Refined core instructions and protocol files to enhance agent performance and auditability.
 

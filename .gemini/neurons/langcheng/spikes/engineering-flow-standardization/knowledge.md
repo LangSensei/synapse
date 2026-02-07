@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Date:** 2026-02-06
-- **Task ID:** engineering-flow-standardization
+- **Spike ID:** engineering-flow-standardization
 - **Tags:** atlas, indexing, synchronization, git-policy
 - **Summary:** Implemented dynamic Atlas indexing with a tracked clean template in the cloud and local-only updates via .gitignore.
 

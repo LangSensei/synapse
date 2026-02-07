@@ -7,8 +7,8 @@ If you are an AI agent, follow the [Synapse Manifesto](.gemini/cortex/manifesto.
 
 ### Quick Start
 1. **Identify User**: Ask for the user's alias.
-2. **Contextualize**: All work happens in `.gemini/neurons/{user}/{task_id}/`.
-3. **Plan**: Use the `planning-with-files` skill within your task directory.
+2. **Contextualize**: All work happens in `.gemini/neurons/{user}/spikes/{spike_id}/`.
+3. **Plan**: Use the `planning-with-files` skill within your spike directory.
 4. **Distill**: Promote significant findings to the [Atlas](.gemini/cortex/atlas.md).
 
 ## Current Cortex State

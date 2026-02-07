@@ -1,6 +1,6 @@
 ---
 name: planning-with-files
-description: Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and progress.md. Use when starting complex multi-step tasks, research projects, or any task requiring >5 tool calls.
+description: Implements Manus-style file-based planning for complex spikes. Creates spike_plan.md, findings.md, and progress.md. Use when starting complex multi-step spikes, research projects, or any spike requiring >5 tool calls.
 ---
 
 # Planning with Files
@@ -10,18 +10,18 @@ Work like Manus: Use persistent markdown files as your "working memory on disk."
 ## Important: Where Files Go
 
 - **Templates** are in this skill's `templates/` folder
-- **Planning files** MUST go in the **task-specific neuron directory**: `.gemini/neurons/{user}/{task_id}/`
+- **Planning files** MUST go in the **spike-specific neuron directory**: `.gemini/neurons/{user}/spikes/{spike_id}/`
 
 | Location | What Goes There |
 |----------|-----------------|
 | Skill directory | Templates, scripts, reference docs |
-| Task Neuron directory | `task_plan.md`, `findings.md`, `progress.md` |
+| Spike Neuron directory | `spike_plan.md`, `findings.md`, `progress.md` |
 
 ## Quick Start
 
-Before ANY complex task:
+Before ANY complex spike:
 
-1. **Create `task_plan.md`** — Use [templates/task_plan.md](templates/task_plan.md) as reference
+1. **Create `spike_plan.md`** — Use [templates/spike_plan.md](templates/spike_plan.md) as reference
 2. **Create `findings.md`** — Use [templates/findings.md](templates/findings.md) as reference
 3. **Create `progress.md`** — Use [templates/progress.md](templates/progress.md) as reference
 4. **Re-read plan before decisions** — Refreshes goals in attention window
@@ -42,14 +42,14 @@ Filesystem = Disk (persistent, unlimited)
 
 | File | Purpose | When to Update |
 |------|---------|----------------|
-| `task_plan.md` | Phases, progress, decisions | After each phase |
+| `spike_plan.md` | Phases, progress, decisions | After each phase |
 | `findings.md` | Research, discoveries | After ANY discovery |
 | `progress.md` | Session log, test results | Throughout session |
 
 ## Critical Rules
 
 ### 1. Create Plan First
-Never start a complex task without `task_plan.md`. Non-negotiable.
+Never start a complex spike without `spike_plan.md`. Non-negotiable.
 
 ### 2. The 2-Action Rule
 > "After every 2 view/browser/search operations, IMMEDIATELY save key findings to text files."
@@ -124,7 +124,7 @@ If you can answer these, your context management is solid:
 
 | Question | Answer Source |
 |----------|---------------|
-| Where am I? | Current phase in task_plan.md |
+| Where am I? | Current phase in spike_plan.md |
 | Where am I going? | Remaining phases |
 | What's the goal? | Goal statement in plan |
 | What have I learned? | findings.md |
@@ -133,10 +133,10 @@ If you can answer these, your context management is solid:
 ## When to Use This Pattern
 
 **Use for:**
-- Multi-step tasks (3+ steps)
-- Research tasks
+- Multi-step spikes (3+ steps)
+- Research spikes
 - Building/creating projects
-- Tasks spanning many tool calls
+- Spikes spanning many tool calls
 - Anything requiring organization
 
 **Skip for:**
@@ -148,7 +148,7 @@ If you can answer these, your context management is solid:
 
 Copy these templates to start:
 
-- [templates/task_plan.md](templates/task_plan.md) — Phase tracking
+- [templates/spike_plan.md](templates/spike_plan.md) — Phase tracking
 - [templates/findings.md](templates/findings.md) — Research storage
 - [templates/progress.md](templates/progress.md) — Session logging
 

@@ -1,4 +1,4 @@
-# Task Plan: [Brief Description]
+# Spike Plan: [Brief Description]
 
 ## Goal
 [One sentence describing the end state]

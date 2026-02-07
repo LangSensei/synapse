@@ -8,7 +8,7 @@ def parse_knowledge_file(file_path):
     
     metadata = {
         "date": "Unknown",
-        "task_id": file_path.parent.name,
+        "spike_id": file_path.parent.name,
         "tags": "none",
         "summary": "No summary available."
     }
@@ -19,12 +19,12 @@ def parse_knowledge_file(file_path):
         section_text = metadata_section.group(1)
         
         date_match = re.search(r'-\s+\*\*Date:\*\*\s+(.*)', section_text)
-        task_id_match = re.search(r'-\s+\*\*Task ID:\*\*\s+(.*)', section_text)
+        spike_id_match = re.search(r'-\s+\*\*Spike ID:\*\*\s+(.*)', section_text)
         tags_match = re.search(r'-\s+\*\*Tags:\*\*\s+(.*)', section_text)
         summary_match = re.search(r'-\s+\*\*Summary:\*\*\s+(.*)', section_text)
 
         if date_match: metadata["date"] = date_match.group(1).strip()
-        if task_id_match: metadata["task_id"] = task_id_match.group(1).strip()
+        if spike_id_match: metadata["spike_id"] = spike_id_match.group(1).strip()
         if tags_match: metadata["tags"] = tags_match.group(1).strip()
         if summary_match: metadata["summary"] = summary_match.group(1).strip()
     
@@ -51,7 +51,7 @@ def sync_atlas():
             rel_path = path.as_posix()
             
             entries.append(
-                f"| {metadata['date']} | {metadata['task_id']} | {user} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
+                f"| {metadata['date']} | {metadata['spike_id']} | {user} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
             )
 
     # Sort entries by date descending
@@ -64,8 +64,8 @@ A dynamically generated index of all verified technical findings across the Syna
 *Note: This file is ignored by Git; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
 ## Index Map
-| Date | Task ID | User | Summary | Tags | Knowledge Link |
-|------|---------|------|---------|------|----------------|
+| Date | Spike ID | User | Summary | Tags | Knowledge Link |
+|------|----------|------|---------|------|----------------|
 """
     
     with open(atlas_path, "w", encoding='utf-8') as f:

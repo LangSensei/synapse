@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Date:** 2026-02-06
-- **Task ID:** github-publication
+- **Spike ID:** github-publication
 - **Tags:** github, deployment, publication
 - **Summary:** Configured the repository for public use on GitHub with standard README and version control policies.
 

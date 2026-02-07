@@ -1,8 +1,8 @@
-# Knowledge: [Task Summary Name]
+# Knowledge: [Spike Summary Name]
 
 ## Metadata
 - **Date:** [YYYY-MM-DD]
-- **Task ID:** [task-id]
+- **Spike ID:** [spike-id]
 - **Tags:** [tag1, tag2, tag3]
 - **Summary:** [A concise 1-2 sentence summary of the core findings.]
 

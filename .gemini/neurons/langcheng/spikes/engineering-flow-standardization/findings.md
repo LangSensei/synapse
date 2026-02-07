@@ -14,7 +14,7 @@
 | Decision | Rationale |
 |----------|-----------|
 | Python Scripting | Best for cross-platform agent execution and regex parsing of markdown. |
-| Atlas Schema | Task-ID centered with metadata (Date, Summary, Key Tags). |
+| Atlas Schema | Spike-ID centered with metadata (Date, Summary, Key Tags). |
 
 ---
 *Update this file after every 2 view/browser/search operations*

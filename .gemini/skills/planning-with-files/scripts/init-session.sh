@@ -9,10 +9,10 @@ DATE=$(date +%Y-%m-%d)
 
 echo "Initializing planning files for: $PROJECT_NAME"
 
-# Create task_plan.md if it doesn't exist
-if [ ! -f "task_plan.md" ]; then
-    cat > task_plan.md << 'EOF'
-# Task Plan: [Brief Description]
+# Create spike_plan.md if it doesn't exist
+if [ ! -f "spike_plan.md" ]; then
+    cat > spike_plan.md << 'EOF'
+# Spike Plan: [Brief Description]
 
 ## Goal
 [One sentence describing the end state]
@@ -56,9 +56,9 @@ Phase 1
 | Error | Resolution |
 |-------|------------|
 EOF
-    echo "Created task_plan.md"
+    echo "Created spike_plan.md"
 else
-    echo "task_plan.md already exists, skipping"
+    echo "spike_plan.md already exists, skipping"
 fi
 
 # Create findings.md if it doesn't exist
@@ -117,4 +117,4 @@ fi
 
 echo ""
 echo "Planning files initialized!"
-echo "Files: task_plan.md, findings.md, progress.md"
+echo "Files: spike_plan.md, findings.md, progress.md"

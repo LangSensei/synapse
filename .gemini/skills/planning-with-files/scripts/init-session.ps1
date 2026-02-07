@@ -9,10 +9,10 @@ $DATE = Get-Date -Format "yyyy-MM-dd"
 
 Write-Host "Initializing planning files for: $ProjectName"
 
-# Create task_plan.md if it doesn't exist
-if (-not (Test-Path "task_plan.md")) {
+# Create spike_plan.md if it doesn't exist
+if (-not (Test-Path "spike_plan.md")) {
     @"
-# Task Plan: [Brief Description]
+# Spike Plan: [Brief Description]
 
 ## Goal
 [One sentence describing the end state]
@@ -55,10 +55,10 @@ Phase 1
 ## Errors Encountered
 | Error | Resolution |
 |-------|------------|
-"@ | Out-File -FilePath "task_plan.md" -Encoding UTF8
-    Write-Host "Created task_plan.md"
+"@ | Out-File -FilePath "spike_plan.md" -Encoding UTF8
+    Write-Host "Created spike_plan.md"
 } else {
-    Write-Host "task_plan.md already exists, skipping"
+    Write-Host "spike_plan.md already exists, skipping"
 }
 
 # Create findings.md if it doesn't exist
@@ -117,4 +117,4 @@ if (-not (Test-Path "progress.md")) {
 
 Write-Host ""
 Write-Host "Planning files initialized!"
-Write-Host "Files: task_plan.md, findings.md, progress.md"
+Write-Host "Files: spike_plan.md, findings.md, progress.md"
