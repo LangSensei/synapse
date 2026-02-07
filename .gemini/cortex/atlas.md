@@ -5,6 +5,6 @@ A dynamically generated index of all verified technical findings across the Syna
 *Note: This file is ignored by Git; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
 ## Index Map
-| Date | Spike ID | Neuron ID | Summary | Tags | Knowledge Link |
-|------|----------|-----------|---------|------|----------------|
-| - | - | - | No local knowledge found. Run sync to populate. | - | - |
+| Neuron ID | Spike ID | Date | Summary | Tags | Knowledge Link |
+|-----------|----------|------|---------|------|----------------|
+| - | - | - | - | - | - |

@@ -53,7 +53,7 @@ def sync_atlas():
             entries.append({
                 "neuron_id": neuron_id,
                 "spike_id": metadata['spike_id'],
-                "line": f"| {metadata['date']} | {metadata['spike_id']} | {neuron_id} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
+                "line": f"| {neuron_id} | {metadata['spike_id']} | {metadata['date']} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
             })
 
     # Sort entries by neuron_id then spike_id
@@ -66,8 +66,8 @@ A dynamically generated index of all verified technical findings across the Syna
 *Note: This file is ignored by Git; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
 ## Index Map
-| Date | Spike ID | Neuron ID | Summary | Tags | Knowledge Link |
-|------|----------|-----------|---------|------|----------------|
+| Neuron ID | Spike ID | Date | Summary | Tags | Knowledge Link |
+|-----------|----------|------|---------|------|----------------|
 """
     
     with open(atlas_path, "w", encoding='utf-8') as f:
@@ -76,7 +76,7 @@ A dynamically generated index of all verified technical findings across the Syna
             f.write(entry["line"] + "\n")
         
         if not entries:
-            f.write("| - | - | - | No local knowledge found. Run sync to populate. | - | - |\n")
+            f.write("| - | - | - | - | - | - |\n")
 
     print(f"Atlas synced with {len(entries)} entries.")
 
