@@ -98,7 +98,7 @@ def extract_messages_after(messages: List[Dict], after_line: int) -> List[Dict]:
                     content = ''
 
             if content and isinstance(content, str):
-                if content.startswith(('<local-command', '<command-', '<task-notification')):
+                if content.startswith(('<local-command', '<command-', '<spike-notification')):
                     continue
                 if len(content) > 20:
                     result.append({'role': 'user', 'content': content, 'line': msg['_line_num']})
@@ -142,7 +142,7 @@ def main():
     project_path = sys.argv[1] if len(sys.argv) > 1 else os.getcwd()
     project_dir = get_project_dir(project_path)
 
-    # Check if planning files exist (indicates active task)
+    # Check if planning files exist (indicates active spike)
     has_planning_files = any(
         Path(project_path, f).exists() for f in PLANNING_FILES
     )

@@ -1,22 +1,22 @@
 # Examples: Planning with Files in Action
 
-## Example 1: Research Task
+## Example 1: Research Spike
 
 **User Request:** "Research the benefits of morning exercise and write a summary"
 
 ### Loop 1: Create Plan
 ```bash
-Write task_plan.md
+Write spike_plan.md
 ```
 
 ```markdown
-# Task Plan: Morning Exercise Benefits Research
+# Spike Plan: Morning Exercise Benefits Research
 
 ## Goal
 Create a research summary on the benefits of morning exercise.
 
 ## Phases
-- [ ] Phase 1: Create this plan ✓
+- [ ] Phase 1: Create this plan 鉓
 - [ ] Phase 2: Search and gather sources
 - [ ] Phase 3: Synthesize findings
 - [ ] Phase 4: Deliver summary
@@ -32,42 +32,42 @@ Create a research summary on the benefits of morning exercise.
 
 ### Loop 2: Research
 ```bash
-Read task_plan.md           # Refresh goals
+Read spike_plan.md           # Refresh goals
 WebSearch "morning exercise benefits"
 Write notes.md              # Store findings
-Edit task_plan.md           # Mark Phase 2 complete
+Edit spike_plan.md           # Mark Phase 2 complete
 ```
 
 ### Loop 3: Synthesize
 ```bash
-Read task_plan.md           # Refresh goals
+Read spike_plan.md           # Refresh goals
 Read notes.md               # Get findings
 Write morning_exercise_summary.md
-Edit task_plan.md           # Mark Phase 3 complete
+Edit spike_plan.md           # Mark Phase 3 complete
 ```
 
 ### Loop 4: Deliver
 ```bash
-Read task_plan.md           # Verify complete
+Read spike_plan.md           # Verify complete
 Deliver morning_exercise_summary.md
 ```
 
 ---
 
-## Example 2: Bug Fix Task
+## Example 2: Bug Fix Spike
 
 **User Request:** "Fix the login bug in the authentication module"
 
-### task_plan.md
+### spike_plan.md
 ```markdown
-# Task Plan: Fix Login Bug
+# Spike Plan: Fix Login Bug
 
 ## Goal
 Identify and fix the bug preventing successful login.
 
 ## Phases
-- [x] Phase 1: Understand the bug report ✓
-- [x] Phase 2: Locate relevant code ✓
+- [x] Phase 1: Understand the bug report 鉓
+- [x] Phase 2: Locate relevant code 鉓
 - [ ] Phase 3: Identify root cause (CURRENT)
 - [ ] Phase 4: Implement fix
 - [ ] Phase 5: Test and verify
@@ -97,16 +97,16 @@ Identify and fix the bug preventing successful login.
 
 ### The 3-File Pattern in Action
 
-**task_plan.md:**
+**spike_plan.md:**
 ```markdown
-# Task Plan: Dark Mode Toggle
+# Spike Plan: Dark Mode Toggle
 
 ## Goal
 Add functional dark mode toggle to settings.
 
 ## Phases
-- [x] Phase 1: Research existing theme system ✓
-- [x] Phase 2: Design implementation approach ✓
+- [x] Phase 1: Research existing theme system 鉓
+- [x] Phase 2: Design implementation approach 鉓
 - [ ] Phase 3: Implement toggle component (CURRENT)
 - [ ] Phase 4: Add theme switching logic
 - [ ] Phase 5: Test and polish
@@ -175,9 +175,9 @@ Action: Read config.json  # Another retry
 Action: Read config.json
 Error: File not found
 
-# Update task_plan.md:
+# Update spike_plan.md:
 ## Errors Encountered
-- config.json not found → Will create default config
+- config.json not found 鈫 Will create default config
 
 Action: Write config.json (default config)
 Action: Read config.json
@@ -195,8 +195,8 @@ Success!
 [Context is getting long...]
 [Original goal might be forgotten...]
 
-→ Read task_plan.md          # This brings goals back into attention!
-→ Now make the decision       # Goals are fresh in context
+鈫 Read spike_plan.md          # This brings goals back into attention!
+鈫 Now make the decision       # Goals are fresh in context
 ```
 
 This is why Manus can handle ~50 tool calls without losing track. The plan file acts as a "goal refresh" mechanism.

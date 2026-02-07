@@ -33,7 +33,7 @@ if ($COMPLETE -eq 0 -and $IN_PROGRESS -eq 0 -and $PENDING -eq 0) {
 if ($COMPLETE -eq $TOTAL -and $TOTAL -gt 0) {
     Write-Host "[planning-with-files] ALL PHASES COMPLETE ($COMPLETE/$TOTAL)"
 } else {
-    Write-Host "[planning-with-files] Task in progress ($COMPLETE/$TOTAL phases complete)"
+    Write-Host "[planning-with-files] Spike in progress ($COMPLETE/$TOTAL phases complete)"
     if ($IN_PROGRESS -gt 0) {
         Write-Host "[planning-with-files] $IN_PROGRESS phase(s) still in progress."
     }

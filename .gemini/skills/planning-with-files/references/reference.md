@@ -41,16 +41,16 @@ Filesystem = Disk (persistent, unlimited)
 
 ### Principle 4: Manipulate Attention Through Recitation
 
-> "Creates and updates todo.md throughout tasks to push global plan into model's recent attention span."
+> "Creates and updates spike_plan.md throughout spikes to push global plan into model's recent attention span."
 
 **Problem:** After ~50 tool calls, models forget original goals ("lost in the middle" effect).
 
-**Solution:** Re-read `task_plan.md` before each decision. Goals appear in the attention window.
+**Solution:** Re-read `spike_plan.md` before each decision. Goals appear in the attention window.
 
 ```
 Start of context: [Original goal - far away, forgotten]
 ...many tool calls...
-End of context: [Recently read task_plan.md - gets ATTENTION!]
+End of context: [Recently read spike_plan.md - gets ATTENTION!]
 ```
 
 ### Principle 5: Keep the Wrong Stuff In
@@ -71,7 +71,7 @@ End of context: [Recently read task_plan.md - gets ATTENTION!]
 **Solution:** Introduce controlled variation:
 - Vary phrasings slightly
 - Don't copy-paste patterns blindly
-- Recalibrate on repetitive tasks
+- Recalibrate on repetitive spikes
 
 ---
 
@@ -103,19 +103,19 @@ RULES:
 ```
 ┌─────────────────────────────────┐
 │         PLANNER AGENT           │
-│  └─ Assigns tasks to sub-agents │
+│  └─ Assigns spikes to sub-agents│
 ├─────────────────────────────────┤
 │       KNOWLEDGE MANAGER         │
 │  └─ Reviews conversations       │
 │  └─ Determines filesystem store │
 ├─────────────────────────────────┤
 │      EXECUTOR SUB-AGENTS        │
-│  └─ Perform assigned tasks      │
+│  └─ Perform assigned spikes      │
 │  └─ Have own context windows    │
 └─────────────────────────────────┘
 ```
 
-**Key Insight:** Manus originally used `todo.md` for task planning but found ~33% of actions were spent updating it. Shifted to dedicated planner agent calling executor sub-agents.
+**Key Insight:** Manus originally used `todo.md` for spike planning but found ~33% of actions were spent updating it. Shifted to dedicated planner agent calling executor sub-agents.
 
 ### Strategy 3: Context Offloading
 
@@ -169,7 +169,7 @@ Manus operates in a continuous 7-step loop:
 
 | File | Purpose | When Created | When Updated |
 |------|---------|--------------|--------------|
-| `task_plan.md` | Phase tracking, progress | Task start | After completing phases |
+| `spike_plan.md` | Phase tracking, progress | Spike start | After completing phases |
 | `findings.md` | Discoveries, decisions | After ANY discovery | After viewing images/PDFs |
 | `progress.md` | Session log, what's done | At breakpoints | Throughout session |
 | Code files | Implementation | Before execution | After errors |
@@ -190,7 +190,7 @@ Manus operates in a continuous 7-step loop:
 
 | Metric | Value |
 |--------|-------|
-| Average tool calls per task | ~50 |
+| Average tool calls per spike | ~50 |
 | Input-to-output token ratio | 100:1 |
 | Acquisition price | $2 billion |
 | Time to $100M revenue | 8 months |
