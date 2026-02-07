@@ -4,46 +4,51 @@
 Review local changes, obtain user approval, and push them to the remote repository.
 
 ## Current Phase
-Phase 1
+Phase 5
 
 ## Phases
 
 ### Phase 1: Review Changes
-- [ ] Run `git status` to see affected files
-- [ ] Run `git diff HEAD` to review code changes
-- [ ] Document changes in findings.md
-- **Status:** in_progress
+- [x] Run `git status` to see affected files
+- [x] Run `git diff HEAD` to review code changes
+- [x] Document changes in findings.md
+- **Status:** complete
 
 ### Phase 2: User Approval
-- [ ] Present changes to the user
-- [ ] Propose a commit message
-- [ ] Confirm if user wants to proceed with commit and push
-- **Status:** pending
+- [x] Present changes to the user
+- [x] Propose a commit message
+- [x] Confirm if user wants to proceed with commit and push
+- **Status:** complete
 
 ### Phase 3: Commit & Push
-- [ ] Commit the changes
-- [ ] Push to the remote repository
-- **Status:** pending
+- [x] Commit the changes
+- [x] Push to the remote repository
+- **Status:** complete
 
 ### Phase 4: Final Verification
-- [ ] Run `git status` to confirm clean state
-- [ ] Verify push was successful
-- **Status:** pending
+- [x] Run `git status` to confirm clean state
+- [x] Verify push was successful
+- **Status:** complete
+
+### Phase 5: Delivery
+- [x] Finalize spike records
+- **Status:** complete
 
 ## Key Questions
-1. What changes have been made locally?
-2. Does the user want to commit all changes or only a subset?
-3. What is the preferred commit message style?
+1. What changes have been made locally? (Completed: Terminology shift to Neuron/Spike, script integration, and protocol v1.2)
+2. Does the user want to commit all changes or only a subset? (Completed: All changes committed)
+3. What is the preferred commit message style? (Completed: Conventional commits used)
 
 ## Decisions Made
 | Decision | Rationale |
 |----------|-----------|
-|          |           |
+| Commit protocol v1.2 | Formally adopts the new Neuron-centric terminology and initialization flow. |
 
 ## Errors Encountered
 | Error | Attempt | Resolution |
 |-------|---------|------------|
-|       | 1       |            |
+| Planning files in root | 1 | Updated manifesto to forbid root placement and moved files to spike dir. |
+| PowerShell && token | 1 | Switched to `;` as statement separator for PowerShell. |
 
 ## Notes
-- Admin privileges granted to modify project root.
+- Admin privileges utilized to modify project root and cortex.
