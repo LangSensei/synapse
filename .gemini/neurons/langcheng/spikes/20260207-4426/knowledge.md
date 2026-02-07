@@ -3,7 +3,7 @@
 ## Metadata
 - **Date:** 2026-02-07
 - **Spike ID:** 20260207-4426
-- **Status:** Completed
+- **Status:** Active
 - **Authors:** langcheng
 - **Tags:** manifesto, protocol, completion-loop
 - **Summary:** Updated the Synapse Manifesto to include a mandatory loop back to the Context Discovery phase after spike completion, ensuring a continuous and organized workflow.

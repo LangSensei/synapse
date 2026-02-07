@@ -3,7 +3,7 @@
 ## Metadata
 - **Date:** 2026-02-07
 - **Spike ID:** 20260207-632a
-- **Status:** Completed
+- **Status:** Active
 - **Authors:** langcheng
 - **Tags:** manifesto, protocol, knowledge-distillation
 - **Summary:** Updated the `manifesto.md` to mandate that `knowledge.md` be created/updated immediately after the "Verification" phase, rather than only upon final completion.

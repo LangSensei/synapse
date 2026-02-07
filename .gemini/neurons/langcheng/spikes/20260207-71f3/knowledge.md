@@ -3,7 +3,7 @@
 ## Metadata
 - **Date:** 2026-02-07
 - **Spike ID:** 20260207-71f3
-- **Status:** Completed
+- **Status:** Active
 - **Authors:** langcheng
 - **Tags:** manifesto, protocol, persistence, accumulation
 - **Summary:** Refined the Synapse Manifesto to enforce a strict "Accumulation Mandate" with a sharpened prompt, ensuring agents maintain a complete, real-time chronological history in planning files without overwriting data.

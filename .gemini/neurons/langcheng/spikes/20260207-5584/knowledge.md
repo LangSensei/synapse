@@ -3,7 +3,7 @@
 ## Metadata
 - **Date:** 2026-02-07
 - **Spike ID:** 20260207-5584
-- **Status:** Completed
+- **Status:** Active
 - **Authors:** langcheng
 - **Tags:** refactor, spike-manager, cli, manifesto, protocol
 - **Summary:** Improved spike filtering and naming logic in `spike_manager.py` and updated the `manifesto.md` to enforce `planning-with-files` skill adherence.
