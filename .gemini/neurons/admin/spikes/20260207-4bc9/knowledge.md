@@ -8,7 +8,7 @@
 
 ## Verified Patterns
 - **Mandatory Confirmation Checkpoint**: Agents must explicitly solicit final approval from the neuron after technical verification is complete using the Options Pattern.
-- **Strict Options Pattern**: Every interaction requiring user input must be structured as numbered options to ensure operational efficiency.
+- **Strict Options Pattern**: Every interaction requiring user input must be structured as a single, continuous, and unambiguous list of numbered options to ensure operational efficiency and prevent response ambiguity.
 
 ## System Constraints
 - **Session Closure**: Direct completion without a checkpoint prevents the neuron from extending the spike with related objectives.
