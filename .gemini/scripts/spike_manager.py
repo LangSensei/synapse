@@ -9,7 +9,7 @@ GEMINI_ROOT = Path(__file__).resolve().parent.parent
 NEURONS_DIR = GEMINI_ROOT / "neurons"
 
 def get_spike_display_name(spike_path):
-    """Extracts the display name from spike_plan.md or returns the directory name."""
+    """Extracts the display name from spike_plan.md or knowledge.md or returns the directory name."""
     plan_path = spike_path / "spike_plan.md"
     if plan_path.exists():
         try:
@@ -19,10 +19,23 @@ def get_spike_display_name(spike_path):
                 return f"{spike_path.name} ({match.group(1).strip()})"
         except Exception:
             pass
+
+    knowledge_path = spike_path / "knowledge.md"
+    if knowledge_path.exists():
+        try:
+            content = knowledge_path.read_text(encoding="utf-8")
+            match = re.search(r"^# Knowledge: (.*)$", content, re.MULTILINE)
+            if match:
+                return f"{spike_path.name} ({match.group(1).strip()})"
+        except Exception:
+            pass
+
     return spike_path.name
 
 def get_spikes(neuron_id):
-    """Returns a list of the 9 most recent spikes for a neuron with display names."""
+    """Returns a list of the 9 most recent active spikes for a neuron.
+    A spike is filtered out if knowledge.md exists and contains '- **Status:** Completed'.
+    """
     neuron_dir = NEURONS_DIR / neuron_id
     if not neuron_dir.exists():
         return []
@@ -38,7 +51,25 @@ def get_spikes(neuron_id):
         reverse=True
     )
     
-    return [get_spike_display_name(d) for d in spike_dirs[:9]]
+    active_spikes = []
+    for d in spike_dirs:
+        knowledge_path = d / "knowledge.md"
+        is_completed = False
+        if knowledge_path.exists():
+            try:
+                content = knowledge_path.read_text(encoding="utf-8")
+                if re.search(r"^- \*\*Status:\*\* Completed", content, re.MULTILINE):
+                    is_completed = True
+            except Exception:
+                pass
+        
+        if not is_completed:
+            active_spikes.append(get_spike_display_name(d))
+        
+        if len(active_spikes) >= 9:
+            break
+            
+    return active_spikes
 
 def generate_spike_id():
     """Generates a unique spike ID in the format YYYYMMDD-ID."""

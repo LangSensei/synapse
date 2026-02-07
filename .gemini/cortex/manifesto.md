@@ -9,7 +9,6 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 ## Engineering Standards
 - **Global Wisdom (Cortex):** All verified findings and architectural shifts MUST be distilled into the Cortex (`.gemini/cortex/`).
 - **Execution History (Neuron):** Every spike must have a unique neuron (`.gemini/neurons/{neuron_id}/spikes/{spike_id}/`) to maintain state and history.
-- **The Options Pattern:** Agents MUST NOT ask open-ended questions or multiple inline questions. Every time an agent needs to ask a question, solicit feedback, or reach a decision point where the next step is not already determined, it MUST be presented as a list of numbered selectable options (1, 2, 3...). **Redundancy Avoidance:** If a decision has already been explicitly made by the neuron (e.g., in a previous instruction) or the next action is part of an already approved plan, the agent SHOULD proceed with execution without presenting redundant options. While multiple lists may be used in a single response for structural clarity, the numbering MUST remain continuous and sequential across the entire response (e.g., 1, 2 followed by 3, 4). **Wait for Input:** After presenting the options, the agent MUST stop execution and wait for the neuron to provide a selection or custom entry before taking any further action. If no options are presented (because the next action is predetermined), the agent SHOULD continue execution. If the neuron provides input that doesn't match an option, it should be treated as a custom entry.
 - **Auditability:** Commit all neuron files to GitHub to enable meta-learning and performance optimization.
 - **Skill Portability:** Project-level skills in `.gemini/skills/` are the authoritative sources for operational procedures.
 - **Workspace Containment:** All temporary scripts, test data, and generated artifacts MUST be created within the active spike directory (`.gemini/neurons/{neuron_id}/spikes/{spike_id}/`), NOT the project root.
@@ -39,8 +38,9 @@ Executed whenever creating a new spike or switching between existing ones.
         - Unix: `bash .gemini/skills/planning-with-files/scripts/init-session.sh -neuronId {neuron_id} -spikeId {spike_id}`
     - **Location Verification:** **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their existence within the specific spike directory immediately after initialization.
 4. **Execution Protocol:**
+    - **Skill Adherence:** Agents MUST strictly adhere to the `planning-with-files` skill instructions and workflows throughout the execution phase.
     - **Plan First:** Populate `spike_plan.md` with a structured roadmap before performing any implementation steps.
-    - **State Maintenance:** Agents are responsible for manually updating `spike_plan.md` (e.g., changing status to `complete`) after each phase.
+    - **State Maintenance:** Agents are responsible for manually updating `spike_plan.md` (e.g., changing status to `complete`) after each phase, as mandated by the `planning-with-files` protocol.
     - **Verification:** Use the provided verification scripts (e.g., `powershell.exe -File .gemini/skills/planning-with-files/scripts/check-complete.ps1 -neuronId {neuron_id} -spikeId {spike_id}`) to audit progress. **Mandatory Checkpoint:** Agents MUST explicitly ask the neuron for final confirmation before completing the spike. This ensures the neuron has the opportunity to append related tasks or provide final feedback before the session concludes.
 5. **The Synapse Mandate:** Upon completion, invoke `knowledge-with-files` to distill findings into `knowledge.md` within the spike directory. Follow the Global Synchronization protocol to update the Atlas.
 
