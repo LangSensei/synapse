@@ -15,6 +15,7 @@ Phase 1
 - **Status:** in_progress
 
 ### Phase 2: Planning & Structure
+- [ ] **Privileged Access Check:** Verify if proposed changes affect files outside `.gemini/neurons/{neuron_id}/`. If yes, ensure `neuron_id == admin`.
 - [ ] Define technical approach
 - [ ] Create project structure if needed
 - [ ] Document decisions with rationale

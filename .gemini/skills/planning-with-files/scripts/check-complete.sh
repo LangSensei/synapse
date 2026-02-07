@@ -3,7 +3,21 @@
 # Always exits 0 — uses stdout for status reporting
 # Used by Stop hook to report spike completion status
 
-PLAN_FILE="${1:-spike_plan.md}"
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --neuronId) NEURON_ID="$2"; shift ;;
+        --spikeId) SPIKE_ID="$2"; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+if [ -z "$NEURON_ID" ] || [ -z "$SPIKE_ID" ]; then
+    echo "Usage: ./check-complete.sh --neuronId [id] --spikeId [id]"
+    exit 1
+fi
+
+PLAN_FILE=".gemini/neurons/$NEURON_ID/spikes/$SPIKE_ID/spike_plan.md"
 
 if [ ! -f "$PLAN_FILE" ]; then
     echo "[planning-with-files] No spike_plan.md found — no active planning session."

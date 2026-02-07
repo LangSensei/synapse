@@ -3,8 +3,15 @@
 # Used by Stop hook to report spike completion status
 
 param(
-    [string]$PlanFile = "spike_plan.md"
+    [Parameter(Mandatory=$true)]
+    [string]$neuronId,
+    
+    [Parameter(Mandatory=$true)]
+    [string]$spikeId
 )
+
+$TargetDir = ".gemini/neurons/$neuronId/spikes/$spikeId"
+$PlanFile = Join-Path $TargetDir "spike_plan.md"
 
 if (-not (Test-Path $PlanFile)) {
     Write-Host "[planning-with-files] No spike_plan.md found — no active planning session."

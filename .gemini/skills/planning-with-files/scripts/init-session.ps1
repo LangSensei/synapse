@@ -1,10 +1,15 @@
 # Initialize planning files for a new session
-# Usage: .\init-session.ps1 [neuron-name]
+# Usage: .\init-session.ps1 -neuronId [id] -spikeId [id]
 
 param(
-    [string]$NeuronName = "neuron",
-    [string]$TargetDir = "."
+    [Parameter(Mandatory=$true)]
+    [string]$neuronId,
+    
+    [Parameter(Mandatory=$true)]
+    [string]$spikeId
 )
+
+$TargetDir = ".gemini/neurons/$neuronId/spikes/$spikeId"
 
 $DATE = Get-Date -Format "yyyy-MM-dd"
 
@@ -13,7 +18,7 @@ if (-not (Test-Path $TargetDir)) {
     Write-Host "Created target directory: $TargetDir"
 }
 
-Write-Host "Initializing planning files for: $NeuronName in $TargetDir"
+Write-Host "Initializing planning files for neuron: $neuronId, spike: $spikeId in $TargetDir"
 
 $SpikePlanPath = Join-Path $TargetDir "spike_plan.md"
 $FindingsPath = Join-Path $TargetDir "findings.md"
@@ -39,6 +44,7 @@ Phase 1
 - **Status:** in_progress
 
 ### Phase 2: Planning & Structure
+- [ ] **Privileged Access Check:** Verify if proposed changes affect files outside `.gemini/neurons/{neuron_id}/`. If yes, ensure `neuron_id == admin`.
 - [ ] Define approach
 - [ ] Create project structure
 - **Status:** pending

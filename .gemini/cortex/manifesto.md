@@ -20,7 +20,7 @@ This project follows the Synapse System Protocol for elite AI software engineeri
     - **Agent:** If a tool returns an error (e.g., `ENOENT`), the agent MUST verify the path/state before retrying or reporting failure.
 
 ## Initialization Sequence
-1. **Neuron Auth:** List existing neuron_ids with `python .gemini/scripts/neuron_manager.py --list`. Provide these as numbered options. If a new neuron_id is needed, the neuron can simply type it. Initialize the neuron with `python .gemini/scripts/neuron_manager.py --init {neuron_id}`.
+1. **Neuron Auth:** List existing neuron_ids with `python .gemini/scripts/neuron_manager.py --list`. Provide these as numbered options. Instruct the user to either select a number from the list OR type a new `neuron_id`. If the input does not match a list item, treat it as a new neuron request. Initialize the neuron with `python .gemini/scripts/neuron_manager.py --init {neuron_id}`.
     - **Trust the Script:** Agents MUST rely on the output of project-level scripts (e.g., `neuron_manager.py`) for state discovery and avoid redundant manual verification of the filesystem when a script has already provided that information. Empty output or script-reported state MUST be accepted as the authoritative truth without further validation.
 2. **Context Setup:** List existing spikes using `python .gemini/scripts/spike_manager.py --list {neuron_id}`.
     - **Resume:** Provide numbered options for existing spikes.
@@ -28,6 +28,6 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 3. **Cortex Sync:** 
     - Read `GEMINI.md` and `manifesto.md`.
     - Run `python .gemini/scripts/sync-atlas.py` to generate the local index.
-4. **Structured Planning:** Invoke `planning-with-files` skill. Initialize the planning files within the spike directory (`.gemini/neurons/${neuron_id}/spikes/${spike_id}/`) using the provided helper scripts. **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their location immediately after initialization.
+4. **Structured Planning:** Invoke `planning-with-files` skill. Initialize the planning files within the spike directory (`.gemini/neurons/${neuron_id}/spikes/${spike_id}/`) using the provided helper scripts (e.g., `powershell.exe -File .gemini/skills/planning-with-files/scripts/init-session.ps1 -neuronId {neuron_id} -spikeId {spike_id}`). **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their location immediately after initialization.
 5. **The Synapse Mandate:** 
     - Use `knowledge-with-files` to distill findings.
