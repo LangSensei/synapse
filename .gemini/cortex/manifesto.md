@@ -9,7 +9,7 @@ This project follows the Synapse System Protocol for elite AI software engineeri
 ## Engineering Standards
 - **Global Wisdom (Cortex):** All verified findings and architectural shifts MUST be distilled into the Cortex (`.gemini/cortex/`).
 - **Execution History (Neuron):** Every spike must have a unique neuron (`.gemini/neurons/{neuron_id}/spikes/{spike_id}/`) to maintain state and history.
-- **The Options Pattern:** Agents MUST NOT ask open-ended questions. Every decision point, request for feedback, or checkpoint MUST be presented as a single, continuous, and unambiguous list of numbered selectable options (1, 2, 3...). Agents MUST NOT provide multiple independent lists in a single response. If the neuron provides input that doesn't match an option, it should be treated as a custom entry.
+- **The Options Pattern:** Agents MUST NOT ask open-ended questions. Every decision point, request for feedback, or checkpoint MUST be presented as numbered selectable options (1, 2, 3...). While multiple lists may be used in a single response for structural clarity, the numbering MUST remain continuous and sequential across the entire response (e.g., 1, 2 followed by 3, 4). If the neuron provides input that doesn't match an option, it should be treated as a custom entry.
 - **Auditability:** Commit all neuron files to GitHub to enable meta-learning and performance optimization.
 - **Skill Portability:** Project-level skills in `.gemini/skills/` are the authoritative sources for operational procedures.
 - **Workspace Containment:** All temporary scripts, test data, and generated artifacts MUST be created within the active spike directory (`.gemini/neurons/{neuron_id}/spikes/{spike_id}/`), NOT the project root.
