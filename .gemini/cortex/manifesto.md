@@ -38,14 +38,19 @@ Executed whenever creating a new spike or switching between existing ones.
         - Windows: `powershell.exe -File .gemini/skills/planning-with-files/scripts/init-session.ps1 -neuronId {neuron_id} -spikeId {spike_id}`
         - Unix: `bash .gemini/skills/planning-with-files/scripts/init-session.sh -neuronId {neuron_id} -spikeId {spike_id}`
     - **Location Verification:** **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their existence within the specific spike directory immediately after initialization.
-3. **Execution Protocol:**
-    - **Iterative Approach:** The agent leverages the `planning-with-files` skill to Plan, Execute, and Verify in a continuous loop. **Persistence Mandate:** Agents MUST update planning files (`spike_plan.md`, `findings.md`, `progress.md`) for each phase and immediately after EACH tool call. **Accumulation:** NEVER overwrite history. Always append new data to preserve the full chronological context. Note that these files are NOT updated automatically by scripts.
-        - **Plan:** Perform knowledge discovery by reviewing `.gemini/cortex/atlas.md` for related technical findings, then populate/update `spike_plan.md` before taking action.
-        - **Execute:** Perform implementation steps while fully leveraging the `planning-with-files` skill (e.g., maintaining `findings.md` via the 2-Action Rule and updating `progress.md`) to ensure continuous state persistence on disk.
-        - **Verify:** Audit progress using verification scripts:
+3. **Adaptive Execution Protocol:**
+    The agent leverages the `planning-with-files` skill to Plan, Execute, and Verify in a continuous cycle. **Mandate:** Agents MUST maintain a perfect state mirror on disk by following the iterative loop below. **Note:** Planning files are NOT updated automatically by scripts.
+    - **Adaptive Execution Loop:** Iteratively evolve the roadmap and execute phase-by-phase until all objectives are met.
+        - **Plan:** Perform discovery via `.gemini/cortex/atlas.md`, then populate/update `spike_plan.md`. The roadmap MUST evolve as new findings emerge. **Sync & Accumulate:** Perform a `read_file` on `spike_plan.md` before updating to ensure no data is lost. All updates MUST be additive; existing phases and history must be preserved, though new phases can be created as needed.
+        - **Execution Cycle (Per Phase):**
+            - **Phase Start:** **Sync & Validate:** Perform a `read_file` on `findings.md` and `progress.md` to synchronize with current disk state. Accumulatively update them before taking action, ensuring no content from previous phases is missing.
+            - **Implementation:** Execute sub-steps while strictly following `planning-with-files` protocols (e.g., 2-Action Rule) and persisting every action to disk.
+            - **Phase Completion:** **Sync & Validate:** Perform a `read_file` on `findings.md` and `progress.md`. Accumulatively update them after all actions are done, ensuring all historical data remains intact and the log is chronologically complete.
+    - **Verification & Distillation:** Only after all phases are complete, move to:
+        - **Verify:** Audit progress via verification scripts:
             - Windows: `powershell.exe -File .gemini/skills/planning-with-files/scripts/check-complete.ps1 -neuronId {neuron_id} -spikeId {spike_id}`
             - Unix: `bash .gemini/skills/planning-with-files/scripts/check-complete.sh -neuronId {neuron_id} -spikeId {spike_id}`
-        - **Distill:** Invoke the `knowledge-with-files` skill to update `knowledge.md` with current findings (Status: Active).
+        - **Distill:** Invoke `knowledge-with-files` to update `knowledge.md` with current findings (Status: Active).
     - **Interaction:** The agent MUST explicitly provide status updates and summaries after key phases and **ask the {neuron_id} for feedback**. To maintain professional courtesy and personalization, agents SHOULD address the user by their `{neuron_id}` during interactions.
     - **Completion Gate:**
         - The spike can ONLY be completed if the {neuron_id} confirms it.
