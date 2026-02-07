@@ -50,12 +50,14 @@ def sync_atlas():
             metadata = parse_knowledge_file(path)
             rel_path = path.as_posix()
             
-            entries.append(
-                f"| {metadata['date']} | {metadata['spike_id']} | {neuron_id} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
-            )
+            entries.append({
+                "neuron_id": neuron_id,
+                "spike_id": metadata['spike_id'],
+                "line": f"| {metadata['date']} | {metadata['spike_id']} | {neuron_id} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
+            })
 
-    # Sort entries by date descending
-    entries.sort(reverse=True)
+    # Sort entries by neuron_id then spike_id
+    entries.sort(key=lambda x: (x["neuron_id"], x["spike_id"]))
 
     atlas_header = """# Synapse Atlas
 
@@ -71,7 +73,7 @@ A dynamically generated index of all verified technical findings across the Syna
     with open(atlas_path, "w", encoding='utf-8') as f:
         f.write(atlas_header)
         for entry in entries:
-            f.write(entry + "\n")
+            f.write(entry["line"] + "\n")
         
         if not entries:
             f.write("| - | - | - | No local knowledge found. Run sync to populate. | - | - |\n")
