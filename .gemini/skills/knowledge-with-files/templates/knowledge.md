@@ -3,18 +3,47 @@
 ## Metadata
 - **Date:** [YYYY-MM-DD]
 - **Spike ID:** [spike-id]
+- **Status:** [Active | Superseded | Deprecated]
+- **Authors:** [Neuron Name]
 - **Tags:** [tag1, tag2, tag3]
 - **Summary:** [A concise 1-2 sentence summary of the core findings.]
 
-## Verified Patterns
-- **[Pattern Name]**: [Detailed description of the verified code snippet, configuration, or workflow.]
+## Context & Motivation
+### Problem Statement
+[Detailed description of the problem or objective this spike addressed.]
 
-## System Constraints
-- **[Constraint Name]**: [Description of newly discovered limits in performance, memory, or environment.]
+### Scope
+[What was included and, crucially, what was excluded from this investigation.]
 
-## Architectural Shifts
-- **[Shift Name]**: [Updates to how modules should interface or behave.]
+## Decision & Outcome
+### Chosen Approach
+[Description of the final decision or technical solution.]
 
-## Resources
-- [Link/Path 1]
-- [Link/Path 2]
+### Rationale
+[Why this approach was selected over others. Link to considered alternatives if applicable.]
+
+## Technical Implementation
+### Core Logic / Patterns
+[Detailed description of the verified code snippets, configurations, or workflows.]
+
+### Dependencies & Integration
+[List of any new libraries, frameworks, or system-wide changes.]
+
+## Consequences & Constraints
+### Operational Impact
+[How this change affects the system's behavior or performance.]
+
+### New Constraints
+[Description of any newly discovered limits or mandatory protocols.]
+
+## Verification & Audit
+### Test Plan
+[Description of the verification strategy used.]
+
+### Results
+[Summary of test outcomes and performance metrics.]
+
+## Resources & References
+- [File Path 1]
+- [External Link 1]
+- [Related Spike ID]

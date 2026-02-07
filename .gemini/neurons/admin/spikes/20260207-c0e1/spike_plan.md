@@ -1,25 +1,26 @@
-# Spike Plan: Refine Spike Manager Auto-Population
+# Spike Plan: Refine Interaction Protocols (Pivot)
 
-Goal: Update `spike_manager.py` to automatically create a `spike_plan.md` with the provided human-readable name when initializing a new spike.
+Goal: Refine the Synapse Manifesto to enforce the Options Pattern and mandate agent pausing for neuron input.
 
 ## Phases
 
-### Phase 1: Implementation <!-- id: 0 -->
-**Status:** in_progress
-- [ ] Modify `initialize_spike` to accept an optional display name.
-- [ ] Implement logic to write a default `spike_plan.md` template if a display name is provided and the file doesn't exist.
-- [ ] Update CLI argument parsing to correctly pass the display name.
+### Phase 1: Protocol Refinement <!-- id: 0 -->
+**Status:** complete
+- [x] Mandate sequential numbering in Options Pattern.
+- [x] Implement "Wait for Input" checkpoint requirement.
+- [x] Forbid open-ended and inline questions.
+- [x] Clarify redundancy avoidance for predetermined actions.
 
-### Phase 2: Verification <!-- id: 1 -->
-**Status:** pending
-- [ ] Create a new test spike using the updated `spike_manager.py` with a display name.
-- [ ] Verify that `spike_plan.md` is created and contains the correct display name.
-- [ ] Run `spike_manager.py --list` to ensure it extracts the name correctly.
+### Phase 2: Verification & Atlas Sync <!-- id: 1 -->
+**Status:** complete
+- [x] Verify Manifesto clarity and commitment.
+- [x] Update knowledge.md with final findings.
+- [x] Synchronize Synapse Atlas.
 
 ## Decisions
-- Template: The auto-generated `spike_plan.md` will follow a minimal version of the project's standard template.
+- Pivot: The original spike goal (auto-populating spike_plan.md in spike_manager.py) was deferred in favor of urgent protocol standardizations.
 
 ## Errors Encountered
 | Error | Attempt | Resolution |
 |-------|---------|------------|
-| | | |
+| Autonomous execution overreach | 1 | Codified "Wait for Input" in Manifesto. |

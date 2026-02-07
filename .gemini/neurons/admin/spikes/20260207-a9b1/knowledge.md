@@ -1,42 +1,49 @@
----
-type: standard
-tags: [protocol, naming-convention, spike-management, cli]
-status: active
----
+# Knowledge: Standard: Spike Naming & Management
 
-# Standard: Spike Naming & Management
+## Metadata
+- **Date:** 2026-02-07
+- **Spike ID:** 20260207-a9b1
+- **Status:** Active
+- **Authors:** admin
+- **Tags:** protocol, naming-convention, spike-management, cli
+- **Summary:** Establishes the `YYYYMMDD-ID` convention for spike directory names to ensure uniqueness and chronological sorting, while decoupling the physical directory name from the human-readable "Display Name" managed within `spike_plan.md`.
 
-## Summary
-Establishes the `YYYYMMDD-ID` convention for spike directory names to ensure uniqueness and chronological sorting, while decoupling the physical directory name from the human-readable "Display Name" managed within `spike_plan.md`.
+## Context & Motivation
+### Problem Statement
+Manual spike naming led to collisions and inconsistent formatting, making the `.gemini/neurons` directory difficult to navigate.
 
-## Motivation
-- **Collision Avoidance:** Previous naming relied on descriptive strings or manual timestamps, leading to potential conflicts or inconsistent formats.
-- **Brevity vs. Context:** Long directory names are cumbersome in CLI. Short IDs are efficient but lack context. This hybrid approach solves both.
-- **Sorting:** `YYYYMMDD` prefix ensures natural chronological order in file explorers and CLI lists.
+### Scope
+Modification of the CLI tool (`spike_manager.py`) and protocol documentation.
 
-## The Standard
+## Decision & Outcome
+### Chosen Approach
+Adopted a hybrid system: ID-based directories (`YYYYMMDD-XXXX`) and content-based display names (from `spike_plan.md`).
 
-### 1. Directory Structure
-Spikes MUST be created in `.gemini/neurons/{neuron_id}/spikes/` using the format:
-`YYYYMMDD-{4_char_hex_id}`
-
-**Example:** `.gemini/neurons/admin/spikes/20260207-a9b1/`
-
-### 2. Display Name Resolution
-The CLI (`spike_manager.py`) resolves the human-readable name by reading the spike's `spike_plan.md`:
-
-1.  **Read:** `.gemini/neurons/{neuron_id}/spikes/{ID}/spike_plan.md`
-2.  **Parse:** Extract the string from the first Level 1 Header: `# Spike Plan: {Display Name}`
-3.  **Fallback:** If the file or header is missing, display the Directory ID.
-
-### 3. Creation Workflow
-1.  **Agent Action:** Call `spike_manager.py --init {neuron_id}` (no name required).
-2.  **System Action:** Generates `YYYYMMDD-ID`.
-3.  **Agent Action:** Create `spike_plan.md` with `# Spike Plan: {Descriptive Name}`.
+### Rationale
+Short IDs are efficient for CLI/FS operations; display names provide human context without polluting the directory structure with long strings.
 
 ## Technical Implementation
-- **ID Generation:** `datetime.now().strftime("%Y%m%d")` + `uuid.uuid4().hex[:4]`
-- **Parser:** Regex `^# Spike Plan: (.*)$` (multiline).
+### Core Logic / Patterns
+- **YYYYMMDD-ID Format**: Uses current date and a 4-char hex suffix.
+- **Display Name Resolution**: Extracting the Level 1 header from `spike_plan.md`.
 
-## Related Protocols
-- **Manifesto:** Updated to reflect this requirement in "Spike Activation".
+### Dependencies & Integration
+- Update to `.gemini/scripts/spike_manager.py`.
+
+## Consequences & Constraints
+### Operational Impact
+Improved sorting and collision prevention.
+
+### New Constraints
+Agents must maintain a Level 1 header in `spike_plan.md` for proper listing.
+
+## Verification & Audit
+### Test Plan
+Integration tests with the `spike_manager.py --list` command.
+
+### Results
+Correct generation of IDs and resolution of display names.
+
+## Resources & References
+- [.gemini/cortex/manifesto.md]
+- [.gemini/scripts/spike_manager.py]

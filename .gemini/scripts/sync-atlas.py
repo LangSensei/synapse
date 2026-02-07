@@ -7,11 +7,17 @@ def parse_knowledge_file(file_path):
     content = file_path.read_text(encoding='utf-8')
     
     metadata = {
+        "spike_name": "Unknown",
         "date": "Unknown",
         "spike_id": file_path.parent.name,
         "tags": "none",
         "summary": "No summary available."
     }
+
+    # Parse Spike Name (L1 Header)
+    name_match = re.search(r'^# Knowledge:\s+(.*)', content, re.MULTILINE)
+    if name_match:
+        metadata["spike_name"] = name_match.group(1).strip()
 
     # Parse Metadata section
     metadata_section = re.search(r'## Metadata(.*?)(?=##|$)', content, re.DOTALL)
@@ -53,7 +59,7 @@ def sync_atlas():
             entries.append({
                 "neuron_id": neuron_id,
                 "spike_id": metadata['spike_id'],
-                "line": f"| {neuron_id} | {metadata['spike_id']} | {metadata['date']} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
+                "line": f"| {neuron_id} | {metadata['spike_id']} | {metadata['spike_name']} | {metadata['date']} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
             })
 
     # Sort entries by neuron_id then spike_id
@@ -66,8 +72,8 @@ A dynamically generated index of all verified technical findings across the Syna
 *Note: This file is ignored by Git; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
 ## Index Map
-| Neuron ID | Spike ID | Date | Summary | Tags | Knowledge Link |
-|-----------|----------|------|---------|------|----------------|
+| Neuron ID | Spike ID | Spike Name | Date | Summary | Tags | Knowledge Link |
+|-----------|----------|------------|------|---------|------|----------------|
 """
     
     with open(atlas_path, "w", encoding='utf-8') as f:

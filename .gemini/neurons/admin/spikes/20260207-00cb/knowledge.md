@@ -3,19 +3,44 @@
 ## Metadata
 - **Date:** 2026-02-07
 - **Spike ID:** 20260207-00cb
+- **Status:** Active
+- **Authors:** admin
 - **Tags:** manifesto, protocol, spikes, planning
 - **Summary:** Refined the Spike Activation section of the Synapse Manifesto to ensure clearer, more actionable steps for agent initialization and planning.
 
-## Verified Patterns
-- **Explicit Skill Activation**: Mandated the use of `activate_skill(name="planning-with-files")` immediately after spike initialization to ensure planning tools are available and structured.
-- **Spike ID Capture**: Formalized the requirement to record the `spike_id` returned by the initialization script for use in subsequent workspace setup steps.
+## Context & Motivation
+### Problem Statement
+The previous spike activation flow was vague, leading to inconsistent setup of planning files and skill activation.
 
-## System Constraints
-- **Workspace Containment**: Reaffirmed the strict requirement that planning files MUST NEVER reside in the project root, only within the specific spike directory.
+### Scope
+Restructuring of the "Spike Activation" protocol within the Synapse Manifesto.
 
-## Architectural Shifts
-- **Phase-Based Execution**: Shifted the manifesto's focus from a single initialization step to a multi-phase protocol (Discovery -> Initialization -> Planning -> Execution -> Distillation).
+## Decision & Outcome
+### Chosen Approach
+Formalized a multi-step flow: Discovery -> Initialization -> Structured Planning -> Execution -> Distillation.
 
-## Resources
-- `.gemini/cortex/manifesto.md`
-- `.gemini/skills/planning-with-files/SKILL.md`
+### Rationale
+Structured workflows reduce the cognitive load on the agent and ensure a consistent "working memory on disk."
+
+## Technical Implementation
+### Core Logic / Patterns
+- **Explicit Skill Activation**: Mandatory `activate_skill(name="planning-with-files")`.
+- **Spike ID Capture**: Recording the script-returned ID for workspace setup.
+
+## Consequences & Constraints
+### Operational Impact
+Higher reliability in spike setup; agents are forced to initialize planning before execution.
+
+### New Constraints
+Planning files MUST NEVER reside in the project root.
+
+## Verification & Audit
+### Test Plan
+Initialization of several test spikes following the new protocol.
+
+### Results
+Successful setup of structured workspaces in all test cases.
+
+## Resources & References
+- [.gemini/cortex/manifesto.md]
+- [.gemini/skills/planning-with-files/SKILL.md]
