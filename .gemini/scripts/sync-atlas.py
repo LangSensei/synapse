@@ -10,6 +10,7 @@ def parse_knowledge_file(file_path):
         "spike_name": "Unknown",
         "date": "Unknown",
         "spike_id": file_path.parent.name,
+        "status": "Unknown",
         "tags": "none",
         "summary": "No summary available."
     }
@@ -26,11 +27,13 @@ def parse_knowledge_file(file_path):
         
         date_match = re.search(r'-\s+\*\*Date:\*\*\s+(.*)', section_text)
         spike_id_match = re.search(r'-\s+\*\*Spike ID:\*\*\s+(.*)', section_text)
+        status_match = re.search(r'-\s+\*\*Status:\*\*\s+(.*)', section_text)
         tags_match = re.search(r'-\s+\*\*Tags:\*\*\s+(.*)', section_text)
         summary_match = re.search(r'-\s+\*\*Summary:\*\*\s+(.*)', section_text)
 
         if date_match: metadata["date"] = date_match.group(1).strip()
         if spike_id_match: metadata["spike_id"] = spike_id_match.group(1).strip()
+        if status_match: metadata["status"] = status_match.group(1).strip()
         if tags_match: metadata["tags"] = tags_match.group(1).strip()
         if summary_match: metadata["summary"] = summary_match.group(1).strip()
     
@@ -54,6 +57,11 @@ def sync_atlas():
             neuron_id = parts[2]
             
             metadata = parse_knowledge_file(path)
+            
+            # Only include entries with status 'Completed'
+            if metadata.get("status") != "Completed":
+                continue
+
             rel_path = path.as_posix()
             
             entries.append({

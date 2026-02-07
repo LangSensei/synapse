@@ -38,7 +38,7 @@ Executed whenever creating a new spike or switching between existing ones.
         - Unix: `bash .gemini/skills/planning-with-files/scripts/init-session.sh -neuronId {neuron_id} -spikeId {spike_id}`
     - **Location Verification:** **STRICT REQUIREMENT:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) MUST NEVER be created in the project root. The agent MUST verify their existence within the specific spike directory immediately after initialization.
 3. **Execution Protocol:**
-    - **Iterative Approach:** The agent leverages the `planning-with-files` skill to Plan, Execute, and Verify in a continuous loop. **Note:** Planning files (`spike_plan.md`, `findings.md`, `progress.md`) are NOT updated automatically by scripts; the agent is responsible for manually updating them after each phase or action.
+    - **Iterative Approach:** The agent leverages the `planning-with-files` skill to Plan, Execute, and Verify in a continuous loop. **Persistence Mandate:** Agents MUST update planning files (`spike_plan.md`, `findings.md`, `progress.md`) for each phase and immediately after EACH tool call. **Accumulation:** NEVER overwrite history. Always append new data to preserve the full chronological context. Note that these files are NOT updated automatically by scripts.
         - **Plan:** Populate/Update `spike_plan.md` before taking action.
         - **Execute:** Perform implementation steps while fully leveraging the `planning-with-files` skill (e.g., maintaining `findings.md` via the 2-Action Rule and updating `progress.md`) to ensure continuous state persistence on disk.
         - **Verify:** Audit progress using verification scripts:
