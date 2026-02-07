@@ -5,13 +5,23 @@
 set -e
 
 NEURON_NAME="${1:-neuron}"
+TARGET_DIR="${2:-.}"
 DATE=$(date +%Y-%m-%d)
 
-echo "Initializing planning files for: $NEURON_NAME"
+if [ ! -d "$TARGET_DIR" ]; then
+    mkdir -p "$TARGET_DIR"
+    echo "Created target directory: $TARGET_DIR"
+fi
+
+echo "Initializing planning files for: $NEURON_NAME in $TARGET_DIR"
+
+SPIKE_PLAN_PATH="$TARGET_DIR/spike_plan.md"
+FINDINGS_PATH="$TARGET_DIR/findings.md"
+PROGRESS_PATH="$TARGET_DIR/progress.md"
 
 # Create spike_plan.md if it doesn't exist
-if [ ! -f "spike_plan.md" ]; then
-    cat > spike_plan.md << 'EOF'
+if [ ! -f "$SPIKE_PLAN_PATH" ]; then
+    cat > "$SPIKE_PLAN_PATH" << 'EOF'
 # Spike Plan: [Brief Description]
 
 ## Goal
@@ -62,8 +72,8 @@ else
 fi
 
 # Create findings.md if it doesn't exist
-if [ ! -f "findings.md" ]; then
-    cat > findings.md << 'EOF'
+if [ ! -f "$FINDINGS_PATH" ]; then
+    cat > "$FINDINGS_PATH" << 'EOF'
 # Findings & Decisions
 
 ## Requirements
@@ -89,8 +99,8 @@ else
 fi
 
 # Create progress.md if it doesn't exist
-if [ ! -f "progress.md" ]; then
-    cat > progress.md << EOF
+if [ ! -f "$PROGRESS_PATH" ]; then
+    cat > "$PROGRESS_PATH" << EOF
 # Progress Log
 
 ## Session: $DATE

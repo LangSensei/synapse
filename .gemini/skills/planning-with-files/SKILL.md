@@ -21,13 +21,14 @@ Work like Manus: Use persistent markdown files as your "working memory on disk."
 
 Before ANY complex spike:
 
-1. **Create `spike_plan.md`** — Use [templates/spike_plan.md](templates/spike_plan.md) as reference
-2. **Create `findings.md`** — Use [templates/findings.md](templates/findings.md) as reference
-3. **Create `progress.md`** — Use [templates/progress.md](templates/progress.md) as reference
-4. **Re-read plan before decisions** — Refreshes goals in attention window
-5. **Update after each phase** — Mark complete, log errors
+1. **Identify the target spike directory:** `.gemini/neurons/{neuron_id}/spikes/{spike_id}/`
+2. **Create `spike_plan.md`** in that directory — Use [templates/spike_plan.md](templates/spike_plan.md) as reference
+3. **Create `findings.md`** in that directory — Use [templates/findings.md](templates/findings.md) as reference
+4. **Create `progress.md`** in that directory — Use [templates/progress.md](templates/progress.md) as reference
+5. **Re-read plan before decisions** — Refreshes goals in attention window
+6. **Update after each phase** — Mark complete, log errors
 
-> **Note:** Planning files go in your project root, not the skill installation folder.
+> **Note:** Planning files MUST go in the spike-specific neuron directory, NEVER the project root.
 
 ## The Core Pattern
 
@@ -173,4 +174,4 @@ Helper scripts for automation:
 | Stuff everything in context | Store large content in files |
 | Start executing immediately | Create plan file FIRST |
 | Repeat failed actions | Track attempts, mutate approach |
-| Create files in skill directory | Create files in your project |
+| Create files in root or skill directory | Create files in the neuron's spike directory |

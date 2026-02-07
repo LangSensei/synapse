@@ -2,15 +2,25 @@
 # Usage: .\init-session.ps1 [neuron-name]
 
 param(
-    [string]$NeuronName = "neuron"
+    [string]$NeuronName = "neuron",
+    [string]$TargetDir = "."
 )
 
 $DATE = Get-Date -Format "yyyy-MM-dd"
 
-Write-Host "Initializing planning files for: $NeuronName"
+if (-not (Test-Path $TargetDir)) {
+    New-Item -ItemType Directory -Force -Path $TargetDir | Out-Null
+    Write-Host "Created target directory: $TargetDir"
+}
+
+Write-Host "Initializing planning files for: $NeuronName in $TargetDir"
+
+$SpikePlanPath = Join-Path $TargetDir "spike_plan.md"
+$FindingsPath = Join-Path $TargetDir "findings.md"
+$ProgressPath = Join-Path $TargetDir "progress.md"
 
 # Create spike_plan.md if it doesn't exist
-if (-not (Test-Path "spike_plan.md")) {
+if (-not (Test-Path $SpikePlanPath)) {
     @"
 # Spike Plan: [Brief Description]
 
@@ -55,14 +65,14 @@ Phase 1
 ## Errors Encountered
 | Error | Resolution |
 |-------|------------|
-"@ | Out-File -FilePath "spike_plan.md" -Encoding UTF8
+"@ | Out-File -FilePath $SpikePlanPath -Encoding UTF8
     Write-Host "Created spike_plan.md"
 } else {
     Write-Host "spike_plan.md already exists, skipping"
 }
 
 # Create findings.md if it doesn't exist
-if (-not (Test-Path "findings.md")) {
+if (-not (Test-Path $FindingsPath)) {
     @"
 # Findings & Decisions
 
@@ -82,14 +92,14 @@ if (-not (Test-Path "findings.md")) {
 
 ## Resources
 -
-"@ | Out-File -FilePath "findings.md" -Encoding UTF8
+"@ | Out-File -FilePath $FindingsPath -Encoding UTF8
     Write-Host "Created findings.md"
 } else {
     Write-Host "findings.md already exists, skipping"
 }
 
 # Create progress.md if it doesn't exist
-if (-not (Test-Path "progress.md")) {
+if (-not (Test-Path $ProgressPath)) {
     @"
 # Progress Log
 
@@ -109,7 +119,7 @@ if (-not (Test-Path "progress.md")) {
 ### Errors
 | Error | Resolution |
 |-------|------------|
-"@ | Out-File -FilePath "progress.md" -Encoding UTF8
+"@ | Out-File -FilePath $ProgressPath -Encoding UTF8
     Write-Host "Created progress.md"
 } else {
     Write-Host "progress.md already exists, skipping"
