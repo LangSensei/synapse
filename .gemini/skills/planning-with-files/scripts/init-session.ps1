@@ -1,13 +1,13 @@
 # Initialize planning files for a new session
-# Usage: .\init-session.ps1 [project-name]
+# Usage: .\init-session.ps1 [neuron-name]
 
 param(
-    [string]$ProjectName = "project"
+    [string]$NeuronName = "neuron"
 )
 
 $DATE = Get-Date -Format "yyyy-MM-dd"
 
-Write-Host "Initializing planning files for: $ProjectName"
+Write-Host "Initializing planning files for: $NeuronName"
 
 # Create spike_plan.md if it doesn't exist
 if (-not (Test-Path "spike_plan.md")) {
@@ -23,7 +23,7 @@ Phase 1
 ## Phases
 
 ### Phase 1: Requirements & Discovery
-- [ ] Understand user intent
+- [ ] Understand neuron intent
 - [ ] Identify constraints
 - [ ] Document in findings.md
 - **Status:** in_progress
@@ -45,7 +45,7 @@ Phase 1
 
 ### Phase 5: Delivery
 - [ ] Review outputs
-- [ ] Deliver to user
+- [ ] Deliver to neuron
 - **Status:** pending
 
 ## Decisions Made

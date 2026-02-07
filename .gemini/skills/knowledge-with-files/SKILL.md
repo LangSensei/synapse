@@ -10,7 +10,7 @@ This skill ensures every spike culminates in a high-quality, parsable technical 
 ## Important: Where Files Go
 
 - **Templates** are in this skill's `templates/` folder
-- **Your knowledge file** MUST go in the **spike-specific neuron directory**: `.gemini/neurons/{user}/spikes/{spike_id}/knowledge.md`
+- **Your knowledge file** MUST go in the **spike-specific neuron directory**: `.gemini/neurons/{neuron_id}/spikes/{spike_id}/knowledge.md`
 
 ## The Knowledge Mandate
 

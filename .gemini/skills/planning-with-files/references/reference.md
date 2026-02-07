@@ -134,7 +134,7 @@ Manus operates in a continuous 7-step loop:
 ```
 ┌─────────────────────────────────────────┐
 │  1. ANALYZE CONTEXT                      │
-│     - Understand user intent             │
+│     - Understand neuron intent             │
 │     - Assess current state               │
 │     - Review recent observations         │
 ├─────────────────────────────────────────┤
@@ -158,7 +158,7 @@ Manus operates in a continuous 7-step loop:
 │     - Continue until complete            │
 ├─────────────────────────────────────────┤
 │  7. DELIVER OUTCOME                      │
-│     - Send results to user               │
+│     - Send results to neuron               │
 │     - Attach all relevant files          │
 └─────────────────────────────────────────┘
 ```

@@ -1,7 +1,7 @@
 # Findings & Decisions
 
 ## Requirements
-<!-- Captured from user request -->
+<!-- Captured from neuron request -->
 -
 
 ## Research Findings

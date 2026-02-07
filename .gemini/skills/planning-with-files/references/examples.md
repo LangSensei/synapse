@@ -2,7 +2,7 @@
 
 ## Example 1: Research Spike
 
-**User Request:** "Research the benefits of morning exercise and write a summary"
+**Neuron Request:** "Research the benefits of morning exercise and write a summary"
 
 ### Loop 1: Create Plan
 ```bash
@@ -56,7 +56,7 @@ Deliver morning_exercise_summary.md
 
 ## Example 2: Bug Fix Spike
 
-**User Request:** "Fix the login bug in the authentication module"
+**Neuron Request:** "Fix the login bug in the authentication module"
 
 ### spike_plan.md
 ```markdown
@@ -83,7 +83,7 @@ Identify and fix the bug preventing successful login.
 
 ## Errors Encountered
 - [Initial] TypeError: Cannot read property 'token' of undefined
-  → Root cause: user object not awaited properly
+  → Root cause: neuron object not awaited properly
 
 ## Status
 **Currently in Phase 3** - Found root cause, preparing fix
@@ -93,7 +93,7 @@ Identify and fix the bug preventing successful login.
 
 ## Example 3: Feature Development
 
-**User Request:** "Add a dark mode toggle to the settings page"
+**Neuron Request:** "Add a dark mode toggle to the settings page"
 
 ### The 3-File Pattern in Action
 

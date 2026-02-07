@@ -1,20 +1,15 @@
 # Synapse Gateway
 
-This is the entry point for the Synapse System Protocol. 
+Welcome to the Synapse System. This file serves as the high-level entry point and navigation hub for the project.
 
-## 🤖 System Entry Instructions
-If you are an AI agent, follow the [Synapse Manifesto](.gemini/cortex/manifesto.md) strictly. 
+## 🤖 Getting Started
+To begin working, an AI agent must initialize the session by following the **Initialization Sequence** defined in the [Manifesto](.gemini/cortex/manifesto.md).
 
-### Quick Start
-1. **Identify User**: Ask for the user's alias.
-2. **Contextualize**: All work happens in `.gemini/neurons/{user}/spikes/{spike_id}/`.
-3. **Plan**: Use the `planning-with-files` skill within your spike directory.
-4. **Distill**: Use the `knowledge-with-files` skill to promote significant findings to the [Atlas](.gemini/cortex/atlas.md).
+## 🗺️ System Navigation
+- **[Manifesto](.gemini/cortex/manifesto.md)**: The authoritative source for engineering standards, operational protocols, and the initialization sequence.
+- **[Atlas](.gemini/cortex/atlas.md)**: The centralized repository of project knowledge and historical findings.
+- **Neuron Directory (`.gemini/neurons/`)**: Contains neuron-specific execution history and active spikes.
 
-## Current Cortex State
+## 📊 Current State
 - **Cortex Path:** `.gemini/cortex/`
-- **Protocol Version:** 1.1 (Optimized Prompts)
-
-## System Entry Points
-- [Manifesto](.gemini/cortex/manifesto.md)
-- [Atlas](.gemini/cortex/atlas.md)
+- **Protocol Version:** 1.2 (Role Definition)

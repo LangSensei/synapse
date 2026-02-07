@@ -1,13 +1,13 @@
 #!/bin/bash
 # Initialize planning files for a new session
-# Usage: ./init-session.sh [project-name]
+# Usage: ./init-session.sh [neuron-name]
 
 set -e
 
-PROJECT_NAME="${1:-project}"
+NEURON_NAME="${1:-neuron}"
 DATE=$(date +%Y-%m-%d)
 
-echo "Initializing planning files for: $PROJECT_NAME"
+echo "Initializing planning files for: $NEURON_NAME"
 
 # Create spike_plan.md if it doesn't exist
 if [ ! -f "spike_plan.md" ]; then
@@ -23,7 +23,7 @@ Phase 1
 ## Phases
 
 ### Phase 1: Requirements & Discovery
-- [ ] Understand user intent
+- [ ] Understand neuron intent
 - [ ] Identify constraints
 - [ ] Document in findings.md
 - **Status:** in_progress
@@ -45,7 +45,7 @@ Phase 1
 
 ### Phase 5: Delivery
 - [ ] Review outputs
-- [ ] Deliver to user
+- [ ] Deliver to neuron
 - **Status:** pending
 
 ## Decisions Made

@@ -9,7 +9,7 @@ Phase 1
 ## Phases
 
 ### Phase 1: Requirements & Discovery
-- [ ] Understand user intent
+- [ ] Understand neuron intent
 - [ ] Identify constraints and requirements
 - [ ] Document findings in findings.md
 - **Status:** in_progress
@@ -35,7 +35,7 @@ Phase 1
 ### Phase 5: Delivery
 - [ ] Review all output files
 - [ ] Final distillation to knowledge.md
-- [ ] Deliver to user
+- [ ] Deliver to neuron
 - **Status:** pending
 
 ## Key Questions

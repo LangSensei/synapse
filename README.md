@@ -3,7 +3,7 @@
 [![Synapse Protocol](https://img.shields.io/badge/Protocol-Synapse-blueviolet)](GEMINI.md)
 [![Dependency: planning-with-files](https://img.shields.io/badge/Dependency-planning--with--files-blue)](https://github.com/OthmanAdi/planning-with-files)
 
-Synapse is a dual-layered cognitive architecture for AI-native software engineering. It implements a decentralized knowledge-sharing ecosystem designed for multi-user collaboration and persistent agent memory.
+Synapse is a dual-layered cognitive architecture for AI-native software engineering. It implements a decentralized knowledge-sharing ecosystem designed for multi-neuron collaboration and persistent agent memory.
 
 ## 🧠 Architecture
 
@@ -15,7 +15,7 @@ Located in `.gemini/cortex/`.
 - **Shared Memory**: Versioned with the repository to ensure all contributors (human and AI) align with the project's "Source of Truth."
 
 ### 2. Neuron (Execution History)
-Located in `.gemini/neurons/{user}/spikes/{spike_id}/`.
+Located in `.gemini/neurons/{neuron_id}/spikes/{spike_id}/`.
 - **Spike Workspace**: Spike-specific workspaces for active development.
 - **Learning History**: These directories are committed to the repository to provide a transparent log of how decisions were made and spikes executed.
 - **Distillation**: Spike-specific insights are refined in `knowledge.md` before being promoted to the Cortex.
@@ -46,7 +46,7 @@ Synapse relies on specialized agent skills for structured execution.
    ```
 
 3. **Initialize your Session:**
-   When starting a session, provide your alias (lowercase, no special characters) to initialize your private neuron space.
+   When starting a session, provide your neuron_id (lowercase, no special characters) to initialize your private neuron space.
 
 ## 📜 The Synapse Protocol
 

@@ -45,13 +45,13 @@ def sync_atlas():
         if "knowledge.md" in files:
             path = Path(root) / "knowledge.md"
             parts = path.parts
-            user = parts[2]
+            neuron_id = parts[2]
             
             metadata = parse_knowledge_file(path)
             rel_path = path.as_posix()
             
             entries.append(
-                f"| {metadata['date']} | {metadata['spike_id']} | {user} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
+                f"| {metadata['date']} | {metadata['spike_id']} | {neuron_id} | {metadata['summary']} | `{metadata['tags']}` | [Link](../../{rel_path}) |"
             )
 
     # Sort entries by date descending
@@ -64,8 +64,8 @@ A dynamically generated index of all verified technical findings across the Syna
 *Note: This file is ignored by Git; run `.gemini/scripts/sync-atlas.py` locally to populate.*
 
 ## Index Map
-| Date | Spike ID | User | Summary | Tags | Knowledge Link |
-|------|----------|------|---------|------|----------------|
+| Date | Spike ID | Neuron ID | Summary | Tags | Knowledge Link |
+|------|----------|-----------|---------|------|----------------|
 """
     
     with open(atlas_path, "w", encoding='utf-8') as f:

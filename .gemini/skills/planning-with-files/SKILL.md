@@ -10,7 +10,7 @@ Work like Manus: Use persistent markdown files as your "working memory on disk."
 ## Important: Where Files Go
 
 - **Templates** are in this skill's `templates/` folder
-- **Planning files** MUST go in the **spike-specific neuron directory**: `.gemini/neurons/{user}/spikes/{spike_id}/`
+- **Planning files** MUST go in the **spike-specific neuron directory**: `.gemini/neurons/{neuron_id}/spikes/{spike_id}/`
 
 | Location | What Goes There |
 |----------|-----------------|
@@ -101,7 +101,7 @@ ATTEMPT 3: Broader Rethink
   → Search for solutions
   → Consider updating the plan
 
-AFTER 3 FAILURES: Escalate to User
+AFTER 3 FAILURES: Escalate to Neuron
   → Explain what you tried
   → Share the specific error
   → Ask for guidance
